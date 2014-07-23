@@ -64,34 +64,34 @@
     NSString *details = [NSString stringWithFormat:@"Received Signal\nName: %@\nSignal: %@db\nTemperature: %@f\nBattery: %@", visit.transmitter.name, RSSI, visit.transmitter.temperature, visit.transmitter.battery];
     [self.singleBeaconLabel setText:details];
     NSLog(@"\n%@\n\n", details);
-    if ([visit.transmitter.temperature integerValue] > 80) {
+    if ([RSSI integerValue] > -60) {
         if (self.lastFiredNotification == 1)
             return;
         
         self.lastFiredNotification = 1;
         UILocalNotification *notification = [[UILocalNotification alloc] init];
         NSDate *now = [NSDate date];
-        NSDate *dateToFire = [now dateByAddingTimeInterval:5];
+        NSDate *dateToFire = [now dateByAddingTimeInterval:1];
         
         [notification setFireDate:dateToFire];
-        [notification setAlertBody:@"It's a bit toasty in here"];
+        [notification setAlertBody:@"Beacon Has a Strong Signal"];
         [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     }
-    else if ([visit.transmitter.temperature integerValue] < 60) {
+    else if ([RSSI integerValue] < -80) {
         if (self.lastFiredNotification == 2)
             return;
         
         self.lastFiredNotification = 2;
         UILocalNotification *notification = [[UILocalNotification alloc] init];
         NSDate *now = [NSDate date];
-        NSDate *dateToFire = [now dateByAddingTimeInterval:5];
+        NSDate *dateToFire = [now dateByAddingTimeInterval:1];
         
         [notification setFireDate:dateToFire];
-        [notification setAlertBody:@"It's a bit chilly in here"];
+        [notification setAlertBody:@"Beacon's Signal is Weakening"];
         [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     }
     else {
-        NSLog(@"Temputure Notification Reset\n\n");
+        NSLog(@"Beacon Signal Notification Reset\n\n");
         self.lastFiredNotification = 0;
     }
 }
