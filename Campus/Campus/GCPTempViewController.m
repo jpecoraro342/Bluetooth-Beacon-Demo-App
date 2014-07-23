@@ -14,6 +14,8 @@
 @interface GCPTempViewController () <FYXServiceDelegate, FYXVisitDelegate>
 
 @property (nonatomic, strong) FYXVisitManager *visitManager;
+@property (weak, nonatomic) IBOutlet UILabel *singleBeaconLabel;
+@property (nonatomic, assign) NSInteger lastFiredNotification; //0 = no notification/reset 1 = Hot 2 = Cold
 
 @end
 
@@ -50,18 +52,53 @@
 - (void)didArrive:(FYXVisit *)visit;
 {
     // this will be invoked when an authorized transmitter is sighted for the first time
-    NSLog(@"Beacon Found\nName: %@\nTemperature: %@\nBattery: %@\n\n", visit.transmitter.name, visit.transmitter.temperature, visit.transmitter.battery);
+    NSLog(@"\nBeacon Found\nName: %@\nTemperature: %@\nBattery: %@\n\n", visit.transmitter.name, visit.transmitter.temperature, visit.transmitter.battery);
 }
 - (void)receivedSighting:(FYXVisit *)visit updateTime:(NSDate *)updateTime RSSI:(NSNumber *)RSSI;
 {
+    if (![visit.transmitter.identifier isEqualToString:@"9as6-mrnmg"]) {
+        NSLog(@"Ignoring Beacon\nID: %@\n\n", visit.transmitter.identifier);
+        return;
+    }
     // this will be invoked when an authorized transmitter is sighted during an on-going visit
-    NSLog(@"Received Signal\nName: %@\nSignal: %@db\nTemperature: %@\nBattery: %@\n\n", visit.transmitter.name, RSSI, visit.transmitter.temperature, visit.transmitter.battery);
-    
+    NSString *details = [NSString stringWithFormat:@"Received Signal\nName: %@\nSignal: %@db\nTemperature: %@f\nBattery: %@", visit.transmitter.name, RSSI, visit.transmitter.temperature, visit.transmitter.battery];
+    [self.singleBeaconLabel setText:details];
+    NSLog(@"\n%@\n\n", details);
+    if ([visit.transmitter.temperature integerValue] > 80) {
+        if (self.lastFiredNotification == 1)
+            return;
+        
+        self.lastFiredNotification = 1;
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        NSDate *now = [NSDate date];
+        NSDate *dateToFire = [now dateByAddingTimeInterval:5];
+        
+        [notification setFireDate:dateToFire];
+        [notification setAlertBody:@"It's a bit toasty in here"];
+        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+    }
+    else if ([visit.transmitter.temperature integerValue] < 60) {
+        if (self.lastFiredNotification == 2)
+            return;
+        
+        self.lastFiredNotification = 2;
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        NSDate *now = [NSDate date];
+        NSDate *dateToFire = [now dateByAddingTimeInterval:5];
+        
+        [notification setFireDate:dateToFire];
+        [notification setAlertBody:@"It's a bit chilly in here"];
+        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+    }
+    else {
+        NSLog(@"Temputure Notification Reset\n\n");
+        self.lastFiredNotification = 0;
+    }
 }
 - (void)didDepart:(FYXVisit *)visit; {
     // this will be invoked when an authorized transmitter has not been sighted for some time
-    NSLog(@"I have left the proximity of the beacon: %@\n", visit.transmitter.name);
-    NSLog(@"I was around the beacon for %.4f seconds\n\n", visit.dwellTime);
+    NSLog(@"Beacon: %@ has exited range\n", visit.transmitter.name);
+    NSLog(@"Beacon was in proximity for %.4f seconds\n\n", visit.dwellTime);
 }
 
 - (void)didReceiveMemoryWarning {
