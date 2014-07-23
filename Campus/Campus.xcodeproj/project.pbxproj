@@ -19,6 +19,22 @@
 		7CC99DDD197F0D0B003E26F0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DC5197F0D0B003E26F0 /* UIKit.framework */; };
 		7CC99DE5197F0D0B003E26F0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CC99DE3197F0D0B003E26F0 /* InfoPlist.strings */; };
 		7CC99DE7197F0D0B003E26F0 /* CampusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC99DE6197F0D0B003E26F0 /* CampusTests.m */; };
+		7CC99DF119802F68003E26F0 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DF019802F68003E26F0 /* CoreBluetooth.framework */; };
+		7CC99DF319802F71003E26F0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DF219802F71003E26F0 /* CoreLocation.framework */; };
+		7CC99DF519802F7E003E26F0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DF419802F7E003E26F0 /* CoreData.framework */; };
+		7CC99DF719802F8A003E26F0 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DF619802F8A003E26F0 /* libz.dylib */; };
+		7CC99DF919802F93003E26F0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DF819802F93003E26F0 /* MapKit.framework */; };
+		7CC99DFB19802F9B003E26F0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DFA19802F9B003E26F0 /* Security.framework */; };
+		7CC99E0E198034E5003E26F0 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DFD198034E5003E26F0 /* Common.framework */; };
+		7CC99E0F198034E5003E26F0 /* ContextCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99E00198034E5003E26F0 /* ContextCore.framework */; };
+		7CC99E10198034E5003E26F0 /* ContextLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99E03198034E5003E26F0 /* ContextLocation.framework */; };
+		7CC99E11198034E5003E26F0 /* DataModels.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7CC99E05198034E5003E26F0 /* DataModels.bundle */; };
+		7CC99E12198034E5003E26F0 /* ContextProfiling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99E07198034E5003E26F0 /* ContextProfiling.framework */; };
+		7CC99E13198034E6003E26F0 /* rules.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7CC99E09198034E5003E26F0 /* rules.txt */; };
+		7CC99E14198034E6003E26F0 /* FYX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99E0A198034E5003E26F0 /* FYX.framework */; };
+		7CC99E15198034E6003E26F0 /* NetworkServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99E0C198034E5003E26F0 /* NetworkServices.framework */; };
+		7CC99E19198038F5003E26F0 /* GCPTempViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC99E17198038F5003E26F0 /* GCPTempViewController.m */; };
+		7CC99E1A198038F5003E26F0 /* GCPTempViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CC99E18198038F5003E26F0 /* GCPTempViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +64,23 @@
 		7CC99DE2197F0D0B003E26F0 /* CampusTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CampusTests-Info.plist"; sourceTree = "<group>"; };
 		7CC99DE4197F0D0B003E26F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7CC99DE6197F0D0B003E26F0 /* CampusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CampusTests.m; sourceTree = "<group>"; };
+		7CC99DF019802F68003E26F0 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		7CC99DF219802F71003E26F0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7CC99DF419802F7E003E26F0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7CC99DF619802F8A003E26F0 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		7CC99DF819802F93003E26F0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7CC99DFA19802F9B003E26F0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		7CC99DFD198034E5003E26F0 /* Common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Common.framework; sourceTree = "<group>"; };
+		7CC99E00198034E5003E26F0 /* ContextCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ContextCore.framework; sourceTree = "<group>"; };
+		7CC99E03198034E5003E26F0 /* ContextLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ContextLocation.framework; sourceTree = "<group>"; };
+		7CC99E05198034E5003E26F0 /* DataModels.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DataModels.bundle; sourceTree = "<group>"; };
+		7CC99E07198034E5003E26F0 /* ContextProfiling.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ContextProfiling.framework; sourceTree = "<group>"; };
+		7CC99E09198034E5003E26F0 /* rules.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rules.txt; sourceTree = "<group>"; };
+		7CC99E0A198034E5003E26F0 /* FYX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FYX.framework; sourceTree = "<group>"; };
+		7CC99E0C198034E5003E26F0 /* NetworkServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NetworkServices.framework; sourceTree = "<group>"; };
+		7CC99E16198038F5003E26F0 /* GCPTempViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPTempViewController.h; sourceTree = "<group>"; };
+		7CC99E17198038F5003E26F0 /* GCPTempViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPTempViewController.m; sourceTree = "<group>"; };
+		7CC99E18198038F5003E26F0 /* GCPTempViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GCPTempViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +88,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CC99DFB19802F9B003E26F0 /* Security.framework in Frameworks */,
+				7CC99E15198034E6003E26F0 /* NetworkServices.framework in Frameworks */,
+				7CC99DF919802F93003E26F0 /* MapKit.framework in Frameworks */,
+				7CC99DF719802F8A003E26F0 /* libz.dylib in Frameworks */,
+				7CC99E10198034E5003E26F0 /* ContextLocation.framework in Frameworks */,
+				7CC99E14198034E6003E26F0 /* FYX.framework in Frameworks */,
+				7CC99DF519802F7E003E26F0 /* CoreData.framework in Frameworks */,
+				7CC99E0F198034E5003E26F0 /* ContextCore.framework in Frameworks */,
+				7CC99DF319802F71003E26F0 /* CoreLocation.framework in Frameworks */,
+				7CC99DF119802F68003E26F0 /* CoreBluetooth.framework in Frameworks */,
 				7CC99DC4197F0D0B003E26F0 /* CoreGraphics.framework in Frameworks */,
+				7CC99E12198034E5003E26F0 /* ContextProfiling.framework in Frameworks */,
+				7CC99E0E198034E5003E26F0 /* Common.framework in Frameworks */,
 				7CC99DC6197F0D0B003E26F0 /* UIKit.framework in Frameworks */,
 				7CC99DC2197F0D0B003E26F0 /* Foundation.framework in Frameworks */,
 			);
@@ -96,6 +141,18 @@
 		7CC99DC0197F0D0B003E26F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7CC99DFC198034E5003E26F0 /* Common.embeddedframework */,
+				7CC99DFF198034E5003E26F0 /* ContextCore.embeddedframework */,
+				7CC99E02198034E5003E26F0 /* ContextLocation.embeddedframework */,
+				7CC99E06198034E5003E26F0 /* ContextProfiling.embeddedframework */,
+				7CC99E0A198034E5003E26F0 /* FYX.framework */,
+				7CC99E0B198034E5003E26F0 /* NetworkServices.embeddedframework */,
+				7CC99DFA19802F9B003E26F0 /* Security.framework */,
+				7CC99DF819802F93003E26F0 /* MapKit.framework */,
+				7CC99DF619802F8A003E26F0 /* libz.dylib */,
+				7CC99DF419802F7E003E26F0 /* CoreData.framework */,
+				7CC99DF219802F71003E26F0 /* CoreLocation.framework */,
+				7CC99DF019802F68003E26F0 /* CoreBluetooth.framework */,
 				7CC99DC1197F0D0B003E26F0 /* Foundation.framework */,
 				7CC99DC3197F0D0B003E26F0 /* CoreGraphics.framework */,
 				7CC99DC5197F0D0B003E26F0 /* UIKit.framework */,
@@ -109,6 +166,9 @@
 			children = (
 				7CC99DD0197F0D0B003E26F0 /* GCPAppDelegate.h */,
 				7CC99DD1197F0D0B003E26F0 /* GCPAppDelegate.m */,
+				7CC99E16198038F5003E26F0 /* GCPTempViewController.h */,
+				7CC99E17198038F5003E26F0 /* GCPTempViewController.m */,
+				7CC99E18198038F5003E26F0 /* GCPTempViewController.xib */,
 				7CC99DD3197F0D0B003E26F0 /* Images.xcassets */,
 				7CC99DC8197F0D0B003E26F0 /* Supporting Files */,
 			);
@@ -142,6 +202,88 @@
 				7CC99DE3197F0D0B003E26F0 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7CC99DFC198034E5003E26F0 /* Common.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				7CC99DFD198034E5003E26F0 /* Common.framework */,
+				7CC99DFE198034E5003E26F0 /* Resources */,
+			);
+			path = Common.embeddedframework;
+			sourceTree = "<group>";
+		};
+		7CC99DFE198034E5003E26F0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7CC99DFF198034E5003E26F0 /* ContextCore.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				7CC99E00198034E5003E26F0 /* ContextCore.framework */,
+				7CC99E01198034E5003E26F0 /* Resources */,
+			);
+			path = ContextCore.embeddedframework;
+			sourceTree = "<group>";
+		};
+		7CC99E01198034E5003E26F0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7CC99E02198034E5003E26F0 /* ContextLocation.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				7CC99E03198034E5003E26F0 /* ContextLocation.framework */,
+				7CC99E04198034E5003E26F0 /* Resources */,
+			);
+			path = ContextLocation.embeddedframework;
+			sourceTree = "<group>";
+		};
+		7CC99E04198034E5003E26F0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7CC99E05198034E5003E26F0 /* DataModels.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7CC99E06198034E5003E26F0 /* ContextProfiling.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				7CC99E07198034E5003E26F0 /* ContextProfiling.framework */,
+				7CC99E08198034E5003E26F0 /* Resources */,
+			);
+			path = ContextProfiling.embeddedframework;
+			sourceTree = "<group>";
+		};
+		7CC99E08198034E5003E26F0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7CC99E09198034E5003E26F0 /* rules.txt */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7CC99E0B198034E5003E26F0 /* NetworkServices.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				7CC99E0C198034E5003E26F0 /* NetworkServices.framework */,
+				7CC99E0D198034E5003E26F0 /* Resources */,
+			);
+			path = NetworkServices.embeddedframework;
+			sourceTree = "<group>";
+		};
+		7CC99E0D198034E5003E26F0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,7 +370,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CC99DCC197F0D0B003E26F0 /* InfoPlist.strings in Resources */,
+				7CC99E1A198038F5003E26F0 /* GCPTempViewController.xib in Resources */,
 				7CC99DD4197F0D0B003E26F0 /* Images.xcassets in Resources */,
+				7CC99E13198034E6003E26F0 /* rules.txt in Resources */,
+				7CC99E11198034E5003E26F0 /* DataModels.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +392,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CC99E19198038F5003E26F0 /* GCPTempViewController.m in Sources */,
 				7CC99DCE197F0D0B003E26F0 /* main.m in Sources */,
 				7CC99DD2197F0D0B003E26F0 /* GCPAppDelegate.m in Sources */,
 			);
@@ -365,6 +511,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Common.embeddedframework",
+					"$(PROJECT_DIR)/ContextCore.embeddedframework",
+					"$(PROJECT_DIR)/ContextLocation.embeddedframework",
+					"$(PROJECT_DIR)/ContextProfiling.embeddedframework",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/NetworkServices.embeddedframework",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Campus/Campus-Prefix.pch";
 				INFOPLIST_FILE = "Campus/Campus-Info.plist";
@@ -378,6 +533,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Common.embeddedframework",
+					"$(PROJECT_DIR)/ContextCore.embeddedframework",
+					"$(PROJECT_DIR)/ContextLocation.embeddedframework",
+					"$(PROJECT_DIR)/ContextProfiling.embeddedframework",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/NetworkServices.embeddedframework",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Campus/Campus-Prefix.pch";
 				INFOPLIST_FILE = "Campus/Campus-Info.plist";
@@ -445,6 +609,7 @@
 				7CC99DEC197F0D0C003E26F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7CC99DED197F0D0C003E26F0 /* Build configuration list for PBXNativeTarget "CampusTests" */ = {
 			isa = XCConfigurationList;
@@ -453,6 +618,7 @@
 				7CC99DEF197F0D0C003E26F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

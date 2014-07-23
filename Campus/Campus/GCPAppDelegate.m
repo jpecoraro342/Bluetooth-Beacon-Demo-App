@@ -7,13 +7,19 @@
 //
 
 #import "GCPAppDelegate.h"
+#import "GCPTempViewController.h"
+#import <FYX/FYX.h>
 
 @implementation GCPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [FYX setAppId:@"4381ecc9b6a12797aeaac6b595838cc00331fccf202ffb9ba96b5a29a7791364"
+        appSecret:@"8a0b43d9de6c618b86bb6a3d50b81ac5cc5a973fc7dc3af038ce724f76628518"
+      callbackUrl:@"comhatcherylabcampus://authcode"];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = [[GCPTempViewController alloc] init];
     [self.window makeKeyAndVisible];
     return YES;
 }
