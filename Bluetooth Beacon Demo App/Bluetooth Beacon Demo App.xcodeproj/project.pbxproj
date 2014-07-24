@@ -1,516 +1,1390 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		7C36A1D919814A5E005707CE /* GCPEstimoteTempViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C36A1D719814A5E005707CE /* GCPEstimoteTempViewController.m */; };
-		7C36A1DA19814A5E005707CE /* GCPEstimoteTempViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C36A1D819814A5E005707CE /* GCPEstimoteTempViewController.xib */; };
-		7C36A1DE19814AA1005707CE /* GCPTempViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C36A1DC19814AA1005707CE /* GCPTempViewController.m */; };
-		7C36A1DF19814AA1005707CE /* GCPTempViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C36A1DD19814AA1005707CE /* GCPTempViewController.xib */; };
-		7C6F6D1A19816076007ADDF6 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6F6D0919816076007ADDF6 /* Common.framework */; };
-		7C6F6D1B19816076007ADDF6 /* ContextCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6F6D0C19816076007ADDF6 /* ContextCore.framework */; };
-		7C6F6D1C19816076007ADDF6 /* ContextLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6F6D0F19816076007ADDF6 /* ContextLocation.framework */; };
-		7C6F6D1D19816076007ADDF6 /* DataModels.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7C6F6D1119816076007ADDF6 /* DataModels.bundle */; };
-		7C6F6D1E19816076007ADDF6 /* ContextProfiling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6F6D1319816076007ADDF6 /* ContextProfiling.framework */; };
-		7C6F6D1F19816076007ADDF6 /* rules.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7C6F6D1519816076007ADDF6 /* rules.txt */; };
-		7C6F6D2019816076007ADDF6 /* FYX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6F6D1619816076007ADDF6 /* FYX.framework */; };
-		7C6F6D2119816076007ADDF6 /* NetworkServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6F6D1819816076007ADDF6 /* NetworkServices.framework */; };
-		7C6F6D2219816520007ADDF6 /* Bluetooth Beacon Demo App-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CC99DC9197F0D0B003E26F0 /* Bluetooth Beacon Demo App-Info.plist */; };
-		7CC99DC2197F0D0B003E26F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DC1197F0D0B003E26F0 /* Foundation.framework */; };
-		7CC99DC4197F0D0B003E26F0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DC3197F0D0B003E26F0 /* CoreGraphics.framework */; };
-		7CC99DC6197F0D0B003E26F0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DC5197F0D0B003E26F0 /* UIKit.framework */; };
-		7CC99DCC197F0D0B003E26F0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CC99DCA197F0D0B003E26F0 /* InfoPlist.strings */; };
-		7CC99DCE197F0D0B003E26F0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC99DCD197F0D0B003E26F0 /* main.m */; };
-		7CC99DD2197F0D0B003E26F0 /* GCPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC99DD1197F0D0B003E26F0 /* GCPAppDelegate.m */; };
-		7CC99DD4197F0D0B003E26F0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CC99DD3197F0D0B003E26F0 /* Images.xcassets */; };
-		7CC99DF119802F68003E26F0 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DF019802F68003E26F0 /* CoreBluetooth.framework */; };
-		7CC99DF319802F71003E26F0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DF219802F71003E26F0 /* CoreLocation.framework */; };
-		7CC99DF519802F7E003E26F0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DF419802F7E003E26F0 /* CoreData.framework */; };
-		7CC99DF719802F8A003E26F0 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DF619802F8A003E26F0 /* libz.dylib */; };
-		7CC99DF919802F93003E26F0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DF819802F93003E26F0 /* MapKit.framework */; };
-		7CC99DFB19802F9B003E26F0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DFA19802F9B003E26F0 /* Security.framework */; };
-		7CC99E19198038F5003E26F0 /* GCPGimbalTempViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC99E17198038F5003E26F0 /* GCPGimbalTempViewController.m */; };
-		7CC99E1A198038F5003E26F0 /* GCPGimbalTempViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CC99E18198038F5003E26F0 /* GCPGimbalTempViewController.xib */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXFileReference section */
-		7C36A1D619814A5E005707CE /* GCPEstimoteTempViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPEstimoteTempViewController.h; sourceTree = "<group>"; };
-		7C36A1D719814A5E005707CE /* GCPEstimoteTempViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPEstimoteTempViewController.m; sourceTree = "<group>"; };
-		7C36A1D819814A5E005707CE /* GCPEstimoteTempViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GCPEstimoteTempViewController.xib; sourceTree = "<group>"; };
-		7C36A1DB19814AA1005707CE /* GCPTempViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPTempViewController.h; sourceTree = "<group>"; };
-		7C36A1DC19814AA1005707CE /* GCPTempViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPTempViewController.m; sourceTree = "<group>"; };
-		7C36A1DD19814AA1005707CE /* GCPTempViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GCPTempViewController.xib; sourceTree = "<group>"; };
-		7C36A1E019814BBC005707CE /* GCPConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCPConstants.h; sourceTree = "<group>"; };
-		7C6F6D0919816076007ADDF6 /* Common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Common.framework; sourceTree = "<group>"; };
-		7C6F6D0C19816076007ADDF6 /* ContextCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ContextCore.framework; sourceTree = "<group>"; };
-		7C6F6D0F19816076007ADDF6 /* ContextLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ContextLocation.framework; sourceTree = "<group>"; };
-		7C6F6D1119816076007ADDF6 /* DataModels.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DataModels.bundle; sourceTree = "<group>"; };
-		7C6F6D1319816076007ADDF6 /* ContextProfiling.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ContextProfiling.framework; sourceTree = "<group>"; };
-		7C6F6D1519816076007ADDF6 /* rules.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rules.txt; sourceTree = "<group>"; };
-		7C6F6D1619816076007ADDF6 /* FYX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FYX.framework; sourceTree = "<group>"; };
-		7C6F6D1819816076007ADDF6 /* NetworkServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NetworkServices.framework; sourceTree = "<group>"; };
-		7C6F6D2319816553007ADDF6 /* Bluetooth Beacon Demo App-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bluetooth Beacon Demo App-Prefix.pch"; sourceTree = "<group>"; };
-		7CC99DBE197F0D0B003E26F0 /* Bluetooth Beacon Demo App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bluetooth Beacon Demo App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7CC99DC1197F0D0B003E26F0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		7CC99DC3197F0D0B003E26F0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		7CC99DC5197F0D0B003E26F0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		7CC99DC9197F0D0B003E26F0 /* Bluetooth Beacon Demo App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Bluetooth Beacon Demo App-Info.plist"; sourceTree = "<group>"; };
-		7CC99DCB197F0D0B003E26F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		7CC99DCD197F0D0B003E26F0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7CC99DD0197F0D0B003E26F0 /* GCPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCPAppDelegate.h; sourceTree = "<group>"; };
-		7CC99DD1197F0D0B003E26F0 /* GCPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCPAppDelegate.m; sourceTree = "<group>"; };
-		7CC99DD3197F0D0B003E26F0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		7CC99DDA197F0D0B003E26F0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		7CC99DF019802F68003E26F0 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
-		7CC99DF219802F71003E26F0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		7CC99DF419802F7E003E26F0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		7CC99DF619802F8A003E26F0 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		7CC99DF819802F93003E26F0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		7CC99DFA19802F9B003E26F0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		7CC99E16198038F5003E26F0 /* GCPGimbalTempViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPGimbalTempViewController.h; sourceTree = "<group>"; };
-		7CC99E17198038F5003E26F0 /* GCPGimbalTempViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPGimbalTempViewController.m; sourceTree = "<group>"; };
-		7CC99E18198038F5003E26F0 /* GCPGimbalTempViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GCPGimbalTempViewController.xib; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		7CC99DBB197F0D0B003E26F0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7CC99DFB19802F9B003E26F0 /* Security.framework in Frameworks */,
-				7C6F6D2119816076007ADDF6 /* NetworkServices.framework in Frameworks */,
-				7CC99DF919802F93003E26F0 /* MapKit.framework in Frameworks */,
-				7CC99DF719802F8A003E26F0 /* libz.dylib in Frameworks */,
-				7C6F6D1C19816076007ADDF6 /* ContextLocation.framework in Frameworks */,
-				7C6F6D2019816076007ADDF6 /* FYX.framework in Frameworks */,
-				7CC99DF519802F7E003E26F0 /* CoreData.framework in Frameworks */,
-				7C6F6D1B19816076007ADDF6 /* ContextCore.framework in Frameworks */,
-				7CC99DF319802F71003E26F0 /* CoreLocation.framework in Frameworks */,
-				7CC99DF119802F68003E26F0 /* CoreBluetooth.framework in Frameworks */,
-				7CC99DC4197F0D0B003E26F0 /* CoreGraphics.framework in Frameworks */,
-				7C6F6D1E19816076007ADDF6 /* ContextProfiling.framework in Frameworks */,
-				7C6F6D1A19816076007ADDF6 /* Common.framework in Frameworks */,
-				7CC99DC6197F0D0B003E26F0 /* UIKit.framework in Frameworks */,
-				7CC99DC2197F0D0B003E26F0 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		7C6F6D0819816076007ADDF6 /* Common.embeddedframework */ = {
-			isa = PBXGroup;
-			children = (
-				7C6F6D0919816076007ADDF6 /* Common.framework */,
-				7C6F6D0A19816076007ADDF6 /* Resources */,
-			);
-			path = Common.embeddedframework;
-			sourceTree = "<group>";
-		};
-		7C6F6D0A19816076007ADDF6 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		7C6F6D0B19816076007ADDF6 /* ContextCore.embeddedframework */ = {
-			isa = PBXGroup;
-			children = (
-				7C6F6D0C19816076007ADDF6 /* ContextCore.framework */,
-				7C6F6D0D19816076007ADDF6 /* Resources */,
-			);
-			path = ContextCore.embeddedframework;
-			sourceTree = "<group>";
-		};
-		7C6F6D0D19816076007ADDF6 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		7C6F6D0E19816076007ADDF6 /* ContextLocation.embeddedframework */ = {
-			isa = PBXGroup;
-			children = (
-				7C6F6D0F19816076007ADDF6 /* ContextLocation.framework */,
-				7C6F6D1019816076007ADDF6 /* Resources */,
-			);
-			path = ContextLocation.embeddedframework;
-			sourceTree = "<group>";
-		};
-		7C6F6D1019816076007ADDF6 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				7C6F6D1119816076007ADDF6 /* DataModels.bundle */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		7C6F6D1219816076007ADDF6 /* ContextProfiling.embeddedframework */ = {
-			isa = PBXGroup;
-			children = (
-				7C6F6D1319816076007ADDF6 /* ContextProfiling.framework */,
-				7C6F6D1419816076007ADDF6 /* Resources */,
-			);
-			path = ContextProfiling.embeddedframework;
-			sourceTree = "<group>";
-		};
-		7C6F6D1419816076007ADDF6 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				7C6F6D1519816076007ADDF6 /* rules.txt */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		7C6F6D1719816076007ADDF6 /* NetworkServices.embeddedframework */ = {
-			isa = PBXGroup;
-			children = (
-				7C6F6D1819816076007ADDF6 /* NetworkServices.framework */,
-				7C6F6D1919816076007ADDF6 /* Resources */,
-			);
-			path = NetworkServices.embeddedframework;
-			sourceTree = "<group>";
-		};
-		7C6F6D1919816076007ADDF6 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		7CC99DB5197F0D0B003E26F0 = {
-			isa = PBXGroup;
-			children = (
-				7CC99DC7197F0D0B003E26F0 /* BluetoothBeaconDemoApp */,
-				7CC99DC0197F0D0B003E26F0 /* Frameworks */,
-				7CC99DBF197F0D0B003E26F0 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		7CC99DBF197F0D0B003E26F0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				7CC99DBE197F0D0B003E26F0 /* Bluetooth Beacon Demo App.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		7CC99DC0197F0D0B003E26F0 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				7C6F6D0819816076007ADDF6 /* Common.embeddedframework */,
-				7C6F6D0B19816076007ADDF6 /* ContextCore.embeddedframework */,
-				7C6F6D0E19816076007ADDF6 /* ContextLocation.embeddedframework */,
-				7C6F6D1219816076007ADDF6 /* ContextProfiling.embeddedframework */,
-				7C6F6D1619816076007ADDF6 /* FYX.framework */,
-				7C6F6D1719816076007ADDF6 /* NetworkServices.embeddedframework */,
-				7CC99DFA19802F9B003E26F0 /* Security.framework */,
-				7CC99DF819802F93003E26F0 /* MapKit.framework */,
-				7CC99DF619802F8A003E26F0 /* libz.dylib */,
-				7CC99DF419802F7E003E26F0 /* CoreData.framework */,
-				7CC99DF219802F71003E26F0 /* CoreLocation.framework */,
-				7CC99DF019802F68003E26F0 /* CoreBluetooth.framework */,
-				7CC99DC1197F0D0B003E26F0 /* Foundation.framework */,
-				7CC99DC3197F0D0B003E26F0 /* CoreGraphics.framework */,
-				7CC99DC5197F0D0B003E26F0 /* UIKit.framework */,
-				7CC99DDA197F0D0B003E26F0 /* XCTest.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		7CC99DC7197F0D0B003E26F0 /* BluetoothBeaconDemoApp */ = {
-			isa = PBXGroup;
-			children = (
-				7C36A1E019814BBC005707CE /* GCPConstants.h */,
-				7CC99DD0197F0D0B003E26F0 /* GCPAppDelegate.h */,
-				7CC99DD1197F0D0B003E26F0 /* GCPAppDelegate.m */,
-				7C36A1DB19814AA1005707CE /* GCPTempViewController.h */,
-				7C36A1DC19814AA1005707CE /* GCPTempViewController.m */,
-				7C36A1DD19814AA1005707CE /* GCPTempViewController.xib */,
-				7CC99E16198038F5003E26F0 /* GCPGimbalTempViewController.h */,
-				7CC99E17198038F5003E26F0 /* GCPGimbalTempViewController.m */,
-				7CC99E18198038F5003E26F0 /* GCPGimbalTempViewController.xib */,
-				7C36A1D619814A5E005707CE /* GCPEstimoteTempViewController.h */,
-				7C36A1D719814A5E005707CE /* GCPEstimoteTempViewController.m */,
-				7C36A1D819814A5E005707CE /* GCPEstimoteTempViewController.xib */,
-				7CC99DD3197F0D0B003E26F0 /* Images.xcassets */,
-				7CC99DC8197F0D0B003E26F0 /* Supporting Files */,
-			);
-			name = BluetoothBeaconDemoApp;
-			path = "Bluetooth Beacon Demo App";
-			sourceTree = "<group>";
-		};
-		7CC99DC8197F0D0B003E26F0 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				7CC99DC9197F0D0B003E26F0 /* Bluetooth Beacon Demo App-Info.plist */,
-				7CC99DCA197F0D0B003E26F0 /* InfoPlist.strings */,
-				7CC99DCD197F0D0B003E26F0 /* main.m */,
-				7C6F6D2319816553007ADDF6 /* Bluetooth Beacon Demo App-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		7CC99DBD197F0D0B003E26F0 /* Bluetooth Beacon Demo App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7CC99DEA197F0D0C003E26F0 /* Build configuration list for PBXNativeTarget "Bluetooth Beacon Demo App" */;
-			buildPhases = (
-				7CC99DBA197F0D0B003E26F0 /* Sources */,
-				7CC99DBB197F0D0B003E26F0 /* Frameworks */,
-				7CC99DBC197F0D0B003E26F0 /* Resources */,
-				7C36A1D51980CDCF005707CE /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Bluetooth Beacon Demo App";
-			productName = Campus;
-			productReference = 7CC99DBE197F0D0B003E26F0 /* Bluetooth Beacon Demo App.app */;
-			productType = "com.apple.product-type.application";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		7CC99DB6197F0D0B003E26F0 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				CLASSPREFIX = GCP;
-				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = "Hatchery Lab, LLC";
-				TargetAttributes = {
-					7CC99DBD197F0D0B003E26F0 = {
-						SystemCapabilities = {
-							com.apple.BackgroundModes = {
-								enabled = 1;
-							};
-						};
-					};
-				};
-			};
-			buildConfigurationList = 7CC99DB9197F0D0B003E26F0 /* Build configuration list for PBXProject "Bluetooth Beacon Demo App" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
-			mainGroup = 7CC99DB5197F0D0B003E26F0;
-			productRefGroup = 7CC99DBF197F0D0B003E26F0 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				7CC99DBD197F0D0B003E26F0 /* Bluetooth Beacon Demo App */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		7CC99DBC197F0D0B003E26F0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7C36A1DF19814AA1005707CE /* GCPTempViewController.xib in Resources */,
-				7CC99DCC197F0D0B003E26F0 /* InfoPlist.strings in Resources */,
-				7C36A1DA19814A5E005707CE /* GCPEstimoteTempViewController.xib in Resources */,
-				7C6F6D2219816520007ADDF6 /* Bluetooth Beacon Demo App-Info.plist in Resources */,
-				7CC99E1A198038F5003E26F0 /* GCPGimbalTempViewController.xib in Resources */,
-				7CC99DD4197F0D0B003E26F0 /* Images.xcassets in Resources */,
-				7C6F6D1D19816076007ADDF6 /* DataModels.bundle in Resources */,
-				7C6F6D1F19816076007ADDF6 /* rules.txt in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		7C36A1D51980CDCF005707CE /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#Update build number with number of git commits if in release mode\nif [ ${CONFIGURATION} == \"Release\" ]; then\nbuildNumber=$(git rev-list HEAD | wc -l | tr -d ' ')\nbuildNumber=$(git rev-list HEAD | wc -l | tr -d ' ')\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\nfi;";
-		};
-/* End PBXShellScriptBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		7CC99DBA197F0D0B003E26F0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7CC99E19198038F5003E26F0 /* GCPGimbalTempViewController.m in Sources */,
-				7CC99DCE197F0D0B003E26F0 /* main.m in Sources */,
-				7CC99DD2197F0D0B003E26F0 /* GCPAppDelegate.m in Sources */,
-				7C36A1DE19814AA1005707CE /* GCPTempViewController.m in Sources */,
-				7C36A1D919814A5E005707CE /* GCPEstimoteTempViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		7CC99DCA197F0D0B003E26F0 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7CC99DCB197F0D0B003E26F0 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		7CC99DE8197F0D0C003E26F0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-			};
-			name = Debug;
-		};
-		7CC99DE9197F0D0C003E26F0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		7CC99DEB197F0D0C003E26F0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Common.embeddedframework",
-					"$(PROJECT_DIR)/ContextCore.embeddedframework",
-					"$(PROJECT_DIR)/ContextLocation.embeddedframework",
-					"$(PROJECT_DIR)/ContextProfiling.embeddedframework",
-					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/NetworkServices.embeddedframework",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Bluetooth Beacon Demo App/Bluetooth Beacon Demo App-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/Bluetooth Beacon Demo App/Bluetooth Beacon Demo App-Info.plist";
-				PRODUCT_NAME = "Bluetooth Beacon Demo App";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		7CC99DEC197F0D0C003E26F0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Common.embeddedframework",
-					"$(PROJECT_DIR)/ContextCore.embeddedframework",
-					"$(PROJECT_DIR)/ContextLocation.embeddedframework",
-					"$(PROJECT_DIR)/ContextProfiling.embeddedframework",
-					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/NetworkServices.embeddedframework",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Bluetooth Beacon Demo App/Bluetooth Beacon Demo App-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/Bluetooth Beacon Demo App/Bluetooth Beacon Demo App-Info.plist";
-				PRODUCT_NAME = "Bluetooth Beacon Demo App";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		7CC99DB9197F0D0B003E26F0 /* Build configuration list for PBXProject "Bluetooth Beacon Demo App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7CC99DE8197F0D0C003E26F0 /* Debug */,
-				7CC99DE9197F0D0C003E26F0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7CC99DEA197F0D0C003E26F0 /* Build configuration list for PBXNativeTarget "Bluetooth Beacon Demo App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7CC99DEB197F0D0C003E26F0 /* Debug */,
-				7CC99DEC197F0D0C003E26F0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = 7CC99DB6197F0D0B003E26F0 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>45DFD54924DE4371A683E389</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>7C36A1D51980CDCF005707CE</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>#Update build number with number of git commits if in release mode
+if [ ${CONFIGURATION} == "Release" ]; then
+buildNumber=$(git rev-list HEAD | wc -l | tr -d ' ')
+buildNumber=$(git rev-list HEAD | wc -l | tr -d ' ')
+/usr/libexec/PlistBuddy -c "Set :CFBundleVersion $buildNumber" "${PROJECT_DIR}/${INFOPLIST_FILE}"
+fi;</string>
+		</dict>
+		<key>7C36A1D619814A5E005707CE</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>GCPEstimoteTempViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C36A1D719814A5E005707CE</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>GCPEstimoteTempViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C36A1D819814A5E005707CE</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>path</key>
+			<string>GCPEstimoteTempViewController.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C36A1D919814A5E005707CE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7C36A1D719814A5E005707CE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7C36A1DA19814A5E005707CE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7C36A1D819814A5E005707CE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7C36A1DB19814AA1005707CE</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>GCPTempViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C36A1DC19814AA1005707CE</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>GCPTempViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C36A1DD19814AA1005707CE</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>path</key>
+			<string>GCPTempViewController.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C36A1DE19814AA1005707CE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7C36A1DC19814AA1005707CE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7C36A1DF19814AA1005707CE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7C36A1DD19814AA1005707CE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7C36A1E019814BBC005707CE</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>GCPConstants.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C6F6D0819816076007ADDF6</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>7C6F6D0919816076007ADDF6</string>
+				<string>7C6F6D0A19816076007ADDF6</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Common.embeddedframework</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C6F6D0919816076007ADDF6</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>path</key>
+			<string>Common.framework</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C6F6D0A19816076007ADDF6</key>
+		<dict>
+			<key>children</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Resources</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C6F6D0B19816076007ADDF6</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>7C6F6D0C19816076007ADDF6</string>
+				<string>7C6F6D0D19816076007ADDF6</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>ContextCore.embeddedframework</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C6F6D0C19816076007ADDF6</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>path</key>
+			<string>ContextCore.framework</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C6F6D0D19816076007ADDF6</key>
+		<dict>
+			<key>children</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Resources</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C6F6D0E19816076007ADDF6</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>7C6F6D0F19816076007ADDF6</string>
+				<string>7C6F6D1019816076007ADDF6</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>ContextLocation.embeddedframework</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C6F6D0F19816076007ADDF6</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>path</key>
+			<string>ContextLocation.framework</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C6F6D1019816076007ADDF6</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>7C6F6D1119816076007ADDF6</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Resources</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C6F6D1119816076007ADDF6</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.plug-in</string>
+			<key>path</key>
+			<string>DataModels.bundle</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C6F6D1219816076007ADDF6</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>7C6F6D1319816076007ADDF6</string>
+				<string>7C6F6D1419816076007ADDF6</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>ContextProfiling.embeddedframework</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C6F6D1319816076007ADDF6</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>path</key>
+			<string>ContextProfiling.framework</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C6F6D1419816076007ADDF6</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>7C6F6D1519816076007ADDF6</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Resources</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C6F6D1519816076007ADDF6</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>path</key>
+			<string>rules.txt</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C6F6D1619816076007ADDF6</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>path</key>
+			<string>FYX.framework</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C6F6D1719816076007ADDF6</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>7C6F6D1819816076007ADDF6</string>
+				<string>7C6F6D1919816076007ADDF6</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>NetworkServices.embeddedframework</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C6F6D1819816076007ADDF6</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>path</key>
+			<string>NetworkServices.framework</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C6F6D1919816076007ADDF6</key>
+		<dict>
+			<key>children</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Resources</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C6F6D1A19816076007ADDF6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7C6F6D0919816076007ADDF6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7C6F6D1B19816076007ADDF6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7C6F6D0C19816076007ADDF6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7C6F6D1C19816076007ADDF6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7C6F6D0F19816076007ADDF6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7C6F6D1D19816076007ADDF6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7C6F6D1119816076007ADDF6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7C6F6D1E19816076007ADDF6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7C6F6D1319816076007ADDF6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7C6F6D1F19816076007ADDF6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7C6F6D1519816076007ADDF6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7C6F6D2019816076007ADDF6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7C6F6D1619816076007ADDF6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7C6F6D2119816076007ADDF6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7C6F6D1819816076007ADDF6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7C6F6D2219816520007ADDF6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7CC99DC9197F0D0B003E26F0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7C6F6D2319816553007ADDF6</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Bluetooth Beacon Demo App-Prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7CC99DB5197F0D0B003E26F0</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>7CC99DC7197F0D0B003E26F0</string>
+				<string>7CC99DC0197F0D0B003E26F0</string>
+				<string>7CC99DBF197F0D0B003E26F0</string>
+				<string>E2B0BD980A4D484DB88F35EF</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7CC99DB6197F0D0B003E26F0</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>CLASSPREFIX</key>
+				<string>GCP</string>
+				<key>LastUpgradeCheck</key>
+				<string>0510</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>Hatchery Lab, LLC</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>7CC99DBD197F0D0B003E26F0</key>
+					<dict>
+						<key>SystemCapabilities</key>
+						<dict>
+							<key>com.apple.BackgroundModes</key>
+							<dict>
+								<key>enabled</key>
+								<string>1</string>
+							</dict>
+						</dict>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>7CC99DB9197F0D0B003E26F0</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+			</array>
+			<key>mainGroup</key>
+			<string>7CC99DB5197F0D0B003E26F0</string>
+			<key>productRefGroup</key>
+			<string>7CC99DBF197F0D0B003E26F0</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>7CC99DBD197F0D0B003E26F0</string>
+			</array>
+		</dict>
+		<key>7CC99DB9197F0D0B003E26F0</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>7CC99DE8197F0D0C003E26F0</string>
+				<string>7CC99DE9197F0D0C003E26F0</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>7CC99DBA197F0D0B003E26F0</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>7CC99E19198038F5003E26F0</string>
+				<string>7CC99DCE197F0D0B003E26F0</string>
+				<string>7CC99DD2197F0D0B003E26F0</string>
+				<string>7C36A1DE19814AA1005707CE</string>
+				<string>7C36A1D919814A5E005707CE</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>7CC99DBB197F0D0B003E26F0</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>7CC99DFB19802F9B003E26F0</string>
+				<string>7C6F6D2119816076007ADDF6</string>
+				<string>7CC99DF919802F93003E26F0</string>
+				<string>7CC99DF719802F8A003E26F0</string>
+				<string>7C6F6D1C19816076007ADDF6</string>
+				<string>7C6F6D2019816076007ADDF6</string>
+				<string>7CC99DF519802F7E003E26F0</string>
+				<string>7C6F6D1B19816076007ADDF6</string>
+				<string>7CC99DF319802F71003E26F0</string>
+				<string>7CC99DF119802F68003E26F0</string>
+				<string>7CC99DC4197F0D0B003E26F0</string>
+				<string>7C6F6D1E19816076007ADDF6</string>
+				<string>7C6F6D1A19816076007ADDF6</string>
+				<string>7CC99DC6197F0D0B003E26F0</string>
+				<string>7CC99DC2197F0D0B003E26F0</string>
+				<string>B3FA4A1FE7EE46F99EF7E2AF</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>7CC99DBC197F0D0B003E26F0</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>7C36A1DF19814AA1005707CE</string>
+				<string>7CC99DCC197F0D0B003E26F0</string>
+				<string>7C36A1DA19814A5E005707CE</string>
+				<string>7C6F6D2219816520007ADDF6</string>
+				<string>7CC99E1A198038F5003E26F0</string>
+				<string>7CC99DD4197F0D0B003E26F0</string>
+				<string>7C6F6D1D19816076007ADDF6</string>
+				<string>7C6F6D1F19816076007ADDF6</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>7CC99DBD197F0D0B003E26F0</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>7CC99DEA197F0D0C003E26F0</string>
+			<key>buildPhases</key>
+			<array>
+				<string>45DFD54924DE4371A683E389</string>
+				<string>7CC99DBA197F0D0B003E26F0</string>
+				<string>7CC99DBB197F0D0B003E26F0</string>
+				<string>7CC99DBC197F0D0B003E26F0</string>
+				<string>7C36A1D51980CDCF005707CE</string>
+				<string>859FD97EEA874F61842A46F6</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Bluetooth Beacon Demo App</string>
+			<key>productName</key>
+			<string>Campus</string>
+			<key>productReference</key>
+			<string>7CC99DBE197F0D0B003E26F0</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>7CC99DBE197F0D0B003E26F0</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Bluetooth Beacon Demo App.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>7CC99DBF197F0D0B003E26F0</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>7CC99DBE197F0D0B003E26F0</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7CC99DC0197F0D0B003E26F0</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>7C6F6D0819816076007ADDF6</string>
+				<string>7C6F6D0B19816076007ADDF6</string>
+				<string>7C6F6D0E19816076007ADDF6</string>
+				<string>7C6F6D1219816076007ADDF6</string>
+				<string>7C6F6D1619816076007ADDF6</string>
+				<string>7C6F6D1719816076007ADDF6</string>
+				<string>7CC99DFA19802F9B003E26F0</string>
+				<string>7CC99DF819802F93003E26F0</string>
+				<string>7CC99DF619802F8A003E26F0</string>
+				<string>7CC99DF419802F7E003E26F0</string>
+				<string>7CC99DF219802F71003E26F0</string>
+				<string>7CC99DF019802F68003E26F0</string>
+				<string>7CC99DC1197F0D0B003E26F0</string>
+				<string>7CC99DC3197F0D0B003E26F0</string>
+				<string>7CC99DC5197F0D0B003E26F0</string>
+				<string>7CC99DDA197F0D0B003E26F0</string>
+				<string>CDD8C76BD4484B7F83F4202A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7CC99DC1197F0D0B003E26F0</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Foundation.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/Foundation.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>7CC99DC2197F0D0B003E26F0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7CC99DC1197F0D0B003E26F0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7CC99DC3197F0D0B003E26F0</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>CoreGraphics.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/CoreGraphics.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>7CC99DC4197F0D0B003E26F0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7CC99DC3197F0D0B003E26F0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7CC99DC5197F0D0B003E26F0</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>UIKit.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/UIKit.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>7CC99DC6197F0D0B003E26F0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7CC99DC5197F0D0B003E26F0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7CC99DC7197F0D0B003E26F0</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>7C36A1E019814BBC005707CE</string>
+				<string>7CC99DD0197F0D0B003E26F0</string>
+				<string>7CC99DD1197F0D0B003E26F0</string>
+				<string>7C36A1DB19814AA1005707CE</string>
+				<string>7C36A1DC19814AA1005707CE</string>
+				<string>7C36A1DD19814AA1005707CE</string>
+				<string>7CC99E16198038F5003E26F0</string>
+				<string>7CC99E17198038F5003E26F0</string>
+				<string>7CC99E18198038F5003E26F0</string>
+				<string>7C36A1D619814A5E005707CE</string>
+				<string>7C36A1D719814A5E005707CE</string>
+				<string>7C36A1D819814A5E005707CE</string>
+				<string>7CC99DD3197F0D0B003E26F0</string>
+				<string>7CC99DC8197F0D0B003E26F0</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>BluetoothBeaconDemoApp</string>
+			<key>path</key>
+			<string>Bluetooth Beacon Demo App</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7CC99DC8197F0D0B003E26F0</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>7CC99DC9197F0D0B003E26F0</string>
+				<string>7CC99DCA197F0D0B003E26F0</string>
+				<string>7CC99DCD197F0D0B003E26F0</string>
+				<string>7C6F6D2319816553007ADDF6</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7CC99DC9197F0D0B003E26F0</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Bluetooth Beacon Demo App-Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7CC99DCA197F0D0B003E26F0</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>7CC99DCB197F0D0B003E26F0</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7CC99DCB197F0D0B003E26F0</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.strings</string>
+			<key>name</key>
+			<string>en</string>
+			<key>path</key>
+			<string>en.lproj/InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7CC99DCC197F0D0B003E26F0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7CC99DCA197F0D0B003E26F0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7CC99DCD197F0D0B003E26F0</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>main.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7CC99DCE197F0D0B003E26F0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7CC99DCD197F0D0B003E26F0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7CC99DD0197F0D0B003E26F0</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>GCPAppDelegate.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7CC99DD1197F0D0B003E26F0</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>GCPAppDelegate.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7CC99DD2197F0D0B003E26F0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7CC99DD1197F0D0B003E26F0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7CC99DD3197F0D0B003E26F0</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Images.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7CC99DD4197F0D0B003E26F0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7CC99DD3197F0D0B003E26F0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7CC99DDA197F0D0B003E26F0</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>XCTest.framework</string>
+			<key>path</key>
+			<string>Library/Frameworks/XCTest.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>7CC99DE8197F0D0C003E26F0</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>7CC99DE9197F0D0C003E26F0</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>7CC99DEA197F0D0C003E26F0</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>7CC99DEB197F0D0C003E26F0</string>
+				<string>7CC99DEC197F0D0C003E26F0</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>7CC99DEB197F0D0C003E26F0</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>E2B0BD980A4D484DB88F35EF</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
+				<string>LaunchImage</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>$(PROJECT_DIR)/Common.embeddedframework</string>
+					<string>$(PROJECT_DIR)/ContextCore.embeddedframework</string>
+					<string>$(PROJECT_DIR)/ContextLocation.embeddedframework</string>
+					<string>$(PROJECT_DIR)/ContextProfiling.embeddedframework</string>
+					<string>$(PROJECT_DIR)</string>
+					<string>$(PROJECT_DIR)/NetworkServices.embeddedframework</string>
+				</array>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Bluetooth Beacon Demo App/Bluetooth Beacon Demo App-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>$(SRCROOT)/Bluetooth Beacon Demo App/Bluetooth Beacon Demo App-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>Bluetooth Beacon Demo App</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>app</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>7CC99DEC197F0D0C003E26F0</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>E2B0BD980A4D484DB88F35EF</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
+				<string>LaunchImage</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>$(PROJECT_DIR)/Common.embeddedframework</string>
+					<string>$(PROJECT_DIR)/ContextCore.embeddedframework</string>
+					<string>$(PROJECT_DIR)/ContextLocation.embeddedframework</string>
+					<string>$(PROJECT_DIR)/ContextProfiling.embeddedframework</string>
+					<string>$(PROJECT_DIR)</string>
+					<string>$(PROJECT_DIR)/NetworkServices.embeddedframework</string>
+				</array>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Bluetooth Beacon Demo App/Bluetooth Beacon Demo App-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>$(SRCROOT)/Bluetooth Beacon Demo App/Bluetooth Beacon Demo App-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>Bluetooth Beacon Demo App</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>app</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>7CC99DF019802F68003E26F0</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>CoreBluetooth.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/CoreBluetooth.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>7CC99DF119802F68003E26F0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7CC99DF019802F68003E26F0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7CC99DF219802F71003E26F0</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>CoreLocation.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/CoreLocation.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>7CC99DF319802F71003E26F0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7CC99DF219802F71003E26F0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7CC99DF419802F7E003E26F0</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>CoreData.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/CoreData.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>7CC99DF519802F7E003E26F0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7CC99DF419802F7E003E26F0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7CC99DF619802F8A003E26F0</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>compiled.mach-o.dylib</string>
+			<key>name</key>
+			<string>libz.dylib</string>
+			<key>path</key>
+			<string>usr/lib/libz.dylib</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>7CC99DF719802F8A003E26F0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7CC99DF619802F8A003E26F0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7CC99DF819802F93003E26F0</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>MapKit.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/MapKit.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>7CC99DF919802F93003E26F0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7CC99DF819802F93003E26F0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7CC99DFA19802F9B003E26F0</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Security.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/Security.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>7CC99DFB19802F9B003E26F0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7CC99DFA19802F9B003E26F0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7CC99E16198038F5003E26F0</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>GCPGimbalTempViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7CC99E17198038F5003E26F0</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>GCPGimbalTempViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7CC99E18198038F5003E26F0</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>path</key>
+			<string>GCPGimbalTempViewController.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7CC99E19198038F5003E26F0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7CC99E17198038F5003E26F0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7CC99E1A198038F5003E26F0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7CC99E18198038F5003E26F0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>859FD97EEA874F61842A46F6</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Pods-Bluetooth Beacon Demo App-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>B3FA4A1FE7EE46F99EF7E2AF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>CDD8C76BD4484B7F83F4202A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>CDD8C76BD4484B7F83F4202A</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-Bluetooth Beacon Demo App.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>E2B0BD980A4D484DB88F35EF</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Bluetooth Beacon Demo App.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Pods-Bluetooth Beacon Demo App.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>7CC99DB6197F0D0B003E26F0</string>
+</dict>
+</plist>
