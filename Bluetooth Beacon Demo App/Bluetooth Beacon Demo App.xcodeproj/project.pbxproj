@@ -11,6 +11,15 @@
 		7C36A1DA19814A5E005707CE /* GCPEstimoteTempViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C36A1D819814A5E005707CE /* GCPEstimoteTempViewController.xib */; };
 		7C36A1DE19814AA1005707CE /* GCPTempViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C36A1DC19814AA1005707CE /* GCPTempViewController.m */; };
 		7C36A1DF19814AA1005707CE /* GCPTempViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C36A1DD19814AA1005707CE /* GCPTempViewController.xib */; };
+		7C6F6D1A19816076007ADDF6 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6F6D0919816076007ADDF6 /* Common.framework */; };
+		7C6F6D1B19816076007ADDF6 /* ContextCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6F6D0C19816076007ADDF6 /* ContextCore.framework */; };
+		7C6F6D1C19816076007ADDF6 /* ContextLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6F6D0F19816076007ADDF6 /* ContextLocation.framework */; };
+		7C6F6D1D19816076007ADDF6 /* DataModels.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7C6F6D1119816076007ADDF6 /* DataModels.bundle */; };
+		7C6F6D1E19816076007ADDF6 /* ContextProfiling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6F6D1319816076007ADDF6 /* ContextProfiling.framework */; };
+		7C6F6D1F19816076007ADDF6 /* rules.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7C6F6D1519816076007ADDF6 /* rules.txt */; };
+		7C6F6D2019816076007ADDF6 /* FYX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6F6D1619816076007ADDF6 /* FYX.framework */; };
+		7C6F6D2119816076007ADDF6 /* NetworkServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6F6D1819816076007ADDF6 /* NetworkServices.framework */; };
+		7C6F6D2219816520007ADDF6 /* Bluetooth Beacon Demo App-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CC99DC9197F0D0B003E26F0 /* Bluetooth Beacon Demo App-Info.plist */; };
 		7CC99DC2197F0D0B003E26F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DC1197F0D0B003E26F0 /* Foundation.framework */; };
 		7CC99DC4197F0D0B003E26F0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DC3197F0D0B003E26F0 /* CoreGraphics.framework */; };
 		7CC99DC6197F0D0B003E26F0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DC5197F0D0B003E26F0 /* UIKit.framework */; };
@@ -21,22 +30,12 @@
 		7CC99DDB197F0D0B003E26F0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DDA197F0D0B003E26F0 /* XCTest.framework */; };
 		7CC99DDC197F0D0B003E26F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DC1197F0D0B003E26F0 /* Foundation.framework */; };
 		7CC99DDD197F0D0B003E26F0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DC5197F0D0B003E26F0 /* UIKit.framework */; };
-		7CC99DE5197F0D0B003E26F0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CC99DE3197F0D0B003E26F0 /* InfoPlist.strings */; };
-		7CC99DE7197F0D0B003E26F0 /* CampusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC99DE6197F0D0B003E26F0 /* CampusTests.m */; };
 		7CC99DF119802F68003E26F0 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DF019802F68003E26F0 /* CoreBluetooth.framework */; };
 		7CC99DF319802F71003E26F0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DF219802F71003E26F0 /* CoreLocation.framework */; };
 		7CC99DF519802F7E003E26F0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DF419802F7E003E26F0 /* CoreData.framework */; };
 		7CC99DF719802F8A003E26F0 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DF619802F8A003E26F0 /* libz.dylib */; };
 		7CC99DF919802F93003E26F0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DF819802F93003E26F0 /* MapKit.framework */; };
 		7CC99DFB19802F9B003E26F0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DFA19802F9B003E26F0 /* Security.framework */; };
-		7CC99E0E198034E5003E26F0 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DFD198034E5003E26F0 /* Common.framework */; };
-		7CC99E0F198034E5003E26F0 /* ContextCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99E00198034E5003E26F0 /* ContextCore.framework */; };
-		7CC99E10198034E5003E26F0 /* ContextLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99E03198034E5003E26F0 /* ContextLocation.framework */; };
-		7CC99E11198034E5003E26F0 /* DataModels.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7CC99E05198034E5003E26F0 /* DataModels.bundle */; };
-		7CC99E12198034E5003E26F0 /* ContextProfiling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99E07198034E5003E26F0 /* ContextProfiling.framework */; };
-		7CC99E13198034E6003E26F0 /* rules.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7CC99E09198034E5003E26F0 /* rules.txt */; };
-		7CC99E14198034E6003E26F0 /* FYX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99E0A198034E5003E26F0 /* FYX.framework */; };
-		7CC99E15198034E6003E26F0 /* NetworkServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99E0C198034E5003E26F0 /* NetworkServices.framework */; };
 		7CC99E19198038F5003E26F0 /* GCPGimbalTempViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC99E17198038F5003E26F0 /* GCPGimbalTempViewController.m */; };
 		7CC99E1A198038F5003E26F0 /* GCPGimbalTempViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CC99E18198038F5003E26F0 /* GCPGimbalTempViewController.xib */; };
 /* End PBXBuildFile section */
@@ -59,36 +58,33 @@
 		7C36A1DC19814AA1005707CE /* GCPTempViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPTempViewController.m; sourceTree = "<group>"; };
 		7C36A1DD19814AA1005707CE /* GCPTempViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GCPTempViewController.xib; sourceTree = "<group>"; };
 		7C36A1E019814BBC005707CE /* GCPConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCPConstants.h; sourceTree = "<group>"; };
-		7CC99DBE197F0D0B003E26F0 /* Campus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Campus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C6F6D0919816076007ADDF6 /* Common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Common.framework; sourceTree = "<group>"; };
+		7C6F6D0C19816076007ADDF6 /* ContextCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ContextCore.framework; sourceTree = "<group>"; };
+		7C6F6D0F19816076007ADDF6 /* ContextLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ContextLocation.framework; sourceTree = "<group>"; };
+		7C6F6D1119816076007ADDF6 /* DataModels.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DataModels.bundle; sourceTree = "<group>"; };
+		7C6F6D1319816076007ADDF6 /* ContextProfiling.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ContextProfiling.framework; sourceTree = "<group>"; };
+		7C6F6D1519816076007ADDF6 /* rules.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rules.txt; sourceTree = "<group>"; };
+		7C6F6D1619816076007ADDF6 /* FYX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FYX.framework; sourceTree = "<group>"; };
+		7C6F6D1819816076007ADDF6 /* NetworkServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NetworkServices.framework; sourceTree = "<group>"; };
+		7C6F6D2319816553007ADDF6 /* Bluetooth Beacon Demo App-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bluetooth Beacon Demo App-Prefix.pch"; sourceTree = "<group>"; };
+		7CC99DBE197F0D0B003E26F0 /* Bluetooth Beacon Demo App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bluetooth Beacon Demo App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC99DC1197F0D0B003E26F0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7CC99DC3197F0D0B003E26F0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		7CC99DC5197F0D0B003E26F0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		7CC99DC9197F0D0B003E26F0 /* Campus-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Campus-Info.plist"; sourceTree = "<group>"; };
+		7CC99DC9197F0D0B003E26F0 /* Bluetooth Beacon Demo App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Bluetooth Beacon Demo App-Info.plist"; sourceTree = "<group>"; };
 		7CC99DCB197F0D0B003E26F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7CC99DCD197F0D0B003E26F0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7CC99DCF197F0D0B003E26F0 /* Campus-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Campus-Prefix.pch"; sourceTree = "<group>"; };
 		7CC99DD0197F0D0B003E26F0 /* GCPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCPAppDelegate.h; sourceTree = "<group>"; };
 		7CC99DD1197F0D0B003E26F0 /* GCPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCPAppDelegate.m; sourceTree = "<group>"; };
 		7CC99DD3197F0D0B003E26F0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		7CC99DD9197F0D0B003E26F0 /* CampusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CampusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CC99DD9197F0D0B003E26F0 /* Bluetooth Beacon Demo AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bluetooth Beacon Demo AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC99DDA197F0D0B003E26F0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		7CC99DE2197F0D0B003E26F0 /* CampusTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CampusTests-Info.plist"; sourceTree = "<group>"; };
-		7CC99DE4197F0D0B003E26F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		7CC99DE6197F0D0B003E26F0 /* CampusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CampusTests.m; sourceTree = "<group>"; };
 		7CC99DF019802F68003E26F0 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		7CC99DF219802F71003E26F0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7CC99DF419802F7E003E26F0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		7CC99DF619802F8A003E26F0 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		7CC99DF819802F93003E26F0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7CC99DFA19802F9B003E26F0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		7CC99DFD198034E5003E26F0 /* Common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Common.framework; sourceTree = "<group>"; };
-		7CC99E00198034E5003E26F0 /* ContextCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ContextCore.framework; sourceTree = "<group>"; };
-		7CC99E03198034E5003E26F0 /* ContextLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ContextLocation.framework; sourceTree = "<group>"; };
-		7CC99E05198034E5003E26F0 /* DataModels.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DataModels.bundle; sourceTree = "<group>"; };
-		7CC99E07198034E5003E26F0 /* ContextProfiling.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ContextProfiling.framework; sourceTree = "<group>"; };
-		7CC99E09198034E5003E26F0 /* rules.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rules.txt; sourceTree = "<group>"; };
-		7CC99E0A198034E5003E26F0 /* FYX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FYX.framework; sourceTree = "<group>"; };
-		7CC99E0C198034E5003E26F0 /* NetworkServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NetworkServices.framework; sourceTree = "<group>"; };
 		7CC99E16198038F5003E26F0 /* GCPGimbalTempViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPGimbalTempViewController.h; sourceTree = "<group>"; };
 		7CC99E17198038F5003E26F0 /* GCPGimbalTempViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPGimbalTempViewController.m; sourceTree = "<group>"; };
 		7CC99E18198038F5003E26F0 /* GCPGimbalTempViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GCPGimbalTempViewController.xib; sourceTree = "<group>"; };
@@ -100,18 +96,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CC99DFB19802F9B003E26F0 /* Security.framework in Frameworks */,
-				7CC99E15198034E6003E26F0 /* NetworkServices.framework in Frameworks */,
+				7C6F6D2119816076007ADDF6 /* NetworkServices.framework in Frameworks */,
 				7CC99DF919802F93003E26F0 /* MapKit.framework in Frameworks */,
 				7CC99DF719802F8A003E26F0 /* libz.dylib in Frameworks */,
-				7CC99E10198034E5003E26F0 /* ContextLocation.framework in Frameworks */,
-				7CC99E14198034E6003E26F0 /* FYX.framework in Frameworks */,
+				7C6F6D1C19816076007ADDF6 /* ContextLocation.framework in Frameworks */,
+				7C6F6D2019816076007ADDF6 /* FYX.framework in Frameworks */,
 				7CC99DF519802F7E003E26F0 /* CoreData.framework in Frameworks */,
-				7CC99E0F198034E5003E26F0 /* ContextCore.framework in Frameworks */,
+				7C6F6D1B19816076007ADDF6 /* ContextCore.framework in Frameworks */,
 				7CC99DF319802F71003E26F0 /* CoreLocation.framework in Frameworks */,
 				7CC99DF119802F68003E26F0 /* CoreBluetooth.framework in Frameworks */,
 				7CC99DC4197F0D0B003E26F0 /* CoreGraphics.framework in Frameworks */,
-				7CC99E12198034E5003E26F0 /* ContextProfiling.framework in Frameworks */,
-				7CC99E0E198034E5003E26F0 /* Common.framework in Frameworks */,
+				7C6F6D1E19816076007ADDF6 /* ContextProfiling.framework in Frameworks */,
+				7C6F6D1A19816076007ADDF6 /* Common.framework in Frameworks */,
 				7CC99DC6197F0D0B003E26F0 /* UIKit.framework in Frameworks */,
 				7CC99DC2197F0D0B003E26F0 /* Foundation.framework in Frameworks */,
 			);
@@ -130,11 +126,92 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C6F6D0819816076007ADDF6 /* Common.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				7C6F6D0919816076007ADDF6 /* Common.framework */,
+				7C6F6D0A19816076007ADDF6 /* Resources */,
+			);
+			path = Common.embeddedframework;
+			sourceTree = "<group>";
+		};
+		7C6F6D0A19816076007ADDF6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7C6F6D0B19816076007ADDF6 /* ContextCore.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				7C6F6D0C19816076007ADDF6 /* ContextCore.framework */,
+				7C6F6D0D19816076007ADDF6 /* Resources */,
+			);
+			path = ContextCore.embeddedframework;
+			sourceTree = "<group>";
+		};
+		7C6F6D0D19816076007ADDF6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7C6F6D0E19816076007ADDF6 /* ContextLocation.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				7C6F6D0F19816076007ADDF6 /* ContextLocation.framework */,
+				7C6F6D1019816076007ADDF6 /* Resources */,
+			);
+			path = ContextLocation.embeddedframework;
+			sourceTree = "<group>";
+		};
+		7C6F6D1019816076007ADDF6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7C6F6D1119816076007ADDF6 /* DataModels.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7C6F6D1219816076007ADDF6 /* ContextProfiling.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				7C6F6D1319816076007ADDF6 /* ContextProfiling.framework */,
+				7C6F6D1419816076007ADDF6 /* Resources */,
+			);
+			path = ContextProfiling.embeddedframework;
+			sourceTree = "<group>";
+		};
+		7C6F6D1419816076007ADDF6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7C6F6D1519816076007ADDF6 /* rules.txt */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7C6F6D1719816076007ADDF6 /* NetworkServices.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				7C6F6D1819816076007ADDF6 /* NetworkServices.framework */,
+				7C6F6D1919816076007ADDF6 /* Resources */,
+			);
+			path = NetworkServices.embeddedframework;
+			sourceTree = "<group>";
+		};
+		7C6F6D1919816076007ADDF6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		7CC99DB5197F0D0B003E26F0 = {
 			isa = PBXGroup;
 			children = (
-				7CC99DC7197F0D0B003E26F0 /* Campus */,
-				7CC99DE0197F0D0B003E26F0 /* CampusTests */,
+				7CC99DC7197F0D0B003E26F0 /* BluetoothBeaconDemoApp */,
 				7CC99DC0197F0D0B003E26F0 /* Frameworks */,
 				7CC99DBF197F0D0B003E26F0 /* Products */,
 			);
@@ -143,8 +220,8 @@
 		7CC99DBF197F0D0B003E26F0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7CC99DBE197F0D0B003E26F0 /* Campus.app */,
-				7CC99DD9197F0D0B003E26F0 /* CampusTests.xctest */,
+				7CC99DBE197F0D0B003E26F0 /* Bluetooth Beacon Demo App.app */,
+				7CC99DD9197F0D0B003E26F0 /* Bluetooth Beacon Demo AppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,12 +229,12 @@
 		7CC99DC0197F0D0B003E26F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7CC99DFC198034E5003E26F0 /* Common.embeddedframework */,
-				7CC99DFF198034E5003E26F0 /* ContextCore.embeddedframework */,
-				7CC99E02198034E5003E26F0 /* ContextLocation.embeddedframework */,
-				7CC99E06198034E5003E26F0 /* ContextProfiling.embeddedframework */,
-				7CC99E0A198034E5003E26F0 /* FYX.framework */,
-				7CC99E0B198034E5003E26F0 /* NetworkServices.embeddedframework */,
+				7C6F6D0819816076007ADDF6 /* Common.embeddedframework */,
+				7C6F6D0B19816076007ADDF6 /* ContextCore.embeddedframework */,
+				7C6F6D0E19816076007ADDF6 /* ContextLocation.embeddedframework */,
+				7C6F6D1219816076007ADDF6 /* ContextProfiling.embeddedframework */,
+				7C6F6D1619816076007ADDF6 /* FYX.framework */,
+				7C6F6D1719816076007ADDF6 /* NetworkServices.embeddedframework */,
 				7CC99DFA19802F9B003E26F0 /* Security.framework */,
 				7CC99DF819802F93003E26F0 /* MapKit.framework */,
 				7CC99DF619802F8A003E26F0 /* libz.dylib */,
@@ -172,7 +249,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		7CC99DC7197F0D0B003E26F0 /* Campus */ = {
+		7CC99DC7197F0D0B003E26F0 /* BluetoothBeaconDemoApp */ = {
 			isa = PBXGroup;
 			children = (
 				7C36A1E019814BBC005707CE /* GCPConstants.h */,
@@ -190,126 +267,27 @@
 				7CC99DD3197F0D0B003E26F0 /* Images.xcassets */,
 				7CC99DC8197F0D0B003E26F0 /* Supporting Files */,
 			);
-			path = Campus;
+			name = BluetoothBeaconDemoApp;
+			path = "Bluetooth Beacon Demo App";
 			sourceTree = "<group>";
 		};
 		7CC99DC8197F0D0B003E26F0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				7CC99DC9197F0D0B003E26F0 /* Campus-Info.plist */,
+				7CC99DC9197F0D0B003E26F0 /* Bluetooth Beacon Demo App-Info.plist */,
 				7CC99DCA197F0D0B003E26F0 /* InfoPlist.strings */,
 				7CC99DCD197F0D0B003E26F0 /* main.m */,
-				7CC99DCF197F0D0B003E26F0 /* Campus-Prefix.pch */,
+				7C6F6D2319816553007ADDF6 /* Bluetooth Beacon Demo App-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		7CC99DE0197F0D0B003E26F0 /* CampusTests */ = {
-			isa = PBXGroup;
-			children = (
-				7CC99DE6197F0D0B003E26F0 /* CampusTests.m */,
-				7CC99DE1197F0D0B003E26F0 /* Supporting Files */,
-			);
-			path = CampusTests;
-			sourceTree = "<group>";
-		};
-		7CC99DE1197F0D0B003E26F0 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				7CC99DE2197F0D0B003E26F0 /* CampusTests-Info.plist */,
-				7CC99DE3197F0D0B003E26F0 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		7CC99DFC198034E5003E26F0 /* Common.embeddedframework */ = {
-			isa = PBXGroup;
-			children = (
-				7CC99DFD198034E5003E26F0 /* Common.framework */,
-				7CC99DFE198034E5003E26F0 /* Resources */,
-			);
-			path = Common.embeddedframework;
-			sourceTree = "<group>";
-		};
-		7CC99DFE198034E5003E26F0 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		7CC99DFF198034E5003E26F0 /* ContextCore.embeddedframework */ = {
-			isa = PBXGroup;
-			children = (
-				7CC99E00198034E5003E26F0 /* ContextCore.framework */,
-				7CC99E01198034E5003E26F0 /* Resources */,
-			);
-			path = ContextCore.embeddedframework;
-			sourceTree = "<group>";
-		};
-		7CC99E01198034E5003E26F0 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		7CC99E02198034E5003E26F0 /* ContextLocation.embeddedframework */ = {
-			isa = PBXGroup;
-			children = (
-				7CC99E03198034E5003E26F0 /* ContextLocation.framework */,
-				7CC99E04198034E5003E26F0 /* Resources */,
-			);
-			path = ContextLocation.embeddedframework;
-			sourceTree = "<group>";
-		};
-		7CC99E04198034E5003E26F0 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				7CC99E05198034E5003E26F0 /* DataModels.bundle */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		7CC99E06198034E5003E26F0 /* ContextProfiling.embeddedframework */ = {
-			isa = PBXGroup;
-			children = (
-				7CC99E07198034E5003E26F0 /* ContextProfiling.framework */,
-				7CC99E08198034E5003E26F0 /* Resources */,
-			);
-			path = ContextProfiling.embeddedframework;
-			sourceTree = "<group>";
-		};
-		7CC99E08198034E5003E26F0 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				7CC99E09198034E5003E26F0 /* rules.txt */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		7CC99E0B198034E5003E26F0 /* NetworkServices.embeddedframework */ = {
-			isa = PBXGroup;
-			children = (
-				7CC99E0C198034E5003E26F0 /* NetworkServices.framework */,
-				7CC99E0D198034E5003E26F0 /* Resources */,
-			);
-			path = NetworkServices.embeddedframework;
-			sourceTree = "<group>";
-		};
-		7CC99E0D198034E5003E26F0 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7CC99DBD197F0D0B003E26F0 /* Campus */ = {
+		7CC99DBD197F0D0B003E26F0 /* Bluetooth Beacon Demo App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7CC99DEA197F0D0C003E26F0 /* Build configuration list for PBXNativeTarget "Campus" */;
+			buildConfigurationList = 7CC99DEA197F0D0C003E26F0 /* Build configuration list for PBXNativeTarget "Bluetooth Beacon Demo App" */;
 			buildPhases = (
 				7CC99DBA197F0D0B003E26F0 /* Sources */,
 				7CC99DBB197F0D0B003E26F0 /* Frameworks */,
@@ -320,14 +298,14 @@
 			);
 			dependencies = (
 			);
-			name = Campus;
+			name = "Bluetooth Beacon Demo App";
 			productName = Campus;
-			productReference = 7CC99DBE197F0D0B003E26F0 /* Campus.app */;
+			productReference = 7CC99DBE197F0D0B003E26F0 /* Bluetooth Beacon Demo App.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7CC99DD8197F0D0B003E26F0 /* CampusTests */ = {
+		7CC99DD8197F0D0B003E26F0 /* Bluetooth Beacon Demo AppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7CC99DED197F0D0C003E26F0 /* Build configuration list for PBXNativeTarget "CampusTests" */;
+			buildConfigurationList = 7CC99DED197F0D0C003E26F0 /* Build configuration list for PBXNativeTarget "Bluetooth Beacon Demo AppTests" */;
 			buildPhases = (
 				7CC99DD5197F0D0B003E26F0 /* Sources */,
 				7CC99DD6197F0D0B003E26F0 /* Frameworks */,
@@ -338,9 +316,9 @@
 			dependencies = (
 				7CC99DDF197F0D0B003E26F0 /* PBXTargetDependency */,
 			);
-			name = CampusTests;
+			name = "Bluetooth Beacon Demo AppTests";
 			productName = CampusTests;
-			productReference = 7CC99DD9197F0D0B003E26F0 /* CampusTests.xctest */;
+			productReference = 7CC99DD9197F0D0B003E26F0 /* Bluetooth Beacon Demo AppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -365,7 +343,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7CC99DB9197F0D0B003E26F0 /* Build configuration list for PBXProject "Campus" */;
+			buildConfigurationList = 7CC99DB9197F0D0B003E26F0 /* Build configuration list for PBXProject "Bluetooth Beacon Demo App" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -377,8 +355,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7CC99DBD197F0D0B003E26F0 /* Campus */,
-				7CC99DD8197F0D0B003E26F0 /* CampusTests */,
+				7CC99DBD197F0D0B003E26F0 /* Bluetooth Beacon Demo App */,
+				7CC99DD8197F0D0B003E26F0 /* Bluetooth Beacon Demo AppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -391,10 +369,11 @@
 				7C36A1DF19814AA1005707CE /* GCPTempViewController.xib in Resources */,
 				7CC99DCC197F0D0B003E26F0 /* InfoPlist.strings in Resources */,
 				7C36A1DA19814A5E005707CE /* GCPEstimoteTempViewController.xib in Resources */,
+				7C6F6D2219816520007ADDF6 /* Bluetooth Beacon Demo App-Info.plist in Resources */,
 				7CC99E1A198038F5003E26F0 /* GCPGimbalTempViewController.xib in Resources */,
 				7CC99DD4197F0D0B003E26F0 /* Images.xcassets in Resources */,
-				7CC99E13198034E6003E26F0 /* rules.txt in Resources */,
-				7CC99E11198034E5003E26F0 /* DataModels.bundle in Resources */,
+				7C6F6D1D19816076007ADDF6 /* DataModels.bundle in Resources */,
+				7C6F6D1F19816076007ADDF6 /* rules.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,7 +381,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CC99DE5197F0D0B003E26F0 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,7 +419,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CC99DE7197F0D0B003E26F0 /* CampusTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,7 +427,7 @@
 /* Begin PBXTargetDependency section */
 		7CC99DDF197F0D0B003E26F0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7CC99DBD197F0D0B003E26F0 /* Campus */;
+			target = 7CC99DBD197F0D0B003E26F0 /* Bluetooth Beacon Demo App */;
 			targetProxy = 7CC99DDE197F0D0B003E26F0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -460,14 +437,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				7CC99DCB197F0D0B003E26F0 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		7CC99DE3197F0D0B003E26F0 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7CC99DE4197F0D0B003E26F0 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -560,9 +529,9 @@
 					"$(PROJECT_DIR)/NetworkServices.embeddedframework",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Campus/Campus-Prefix.pch";
-				INFOPLIST_FILE = "Campus/Campus-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Bluetooth Beacon Demo App/Bluetooth Beacon Demo App-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Bluetooth Beacon Demo App/Bluetooth Beacon Demo App-Info.plist";
+				PRODUCT_NAME = "Bluetooth Beacon Demo App";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -582,9 +551,9 @@
 					"$(PROJECT_DIR)/NetworkServices.embeddedframework",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Campus/Campus-Prefix.pch";
-				INFOPLIST_FILE = "Campus/Campus-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Bluetooth Beacon Demo App/Bluetooth Beacon Demo App-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Bluetooth Beacon Demo App/Bluetooth Beacon Demo App-Info.plist";
+				PRODUCT_NAME = "Bluetooth Beacon Demo App";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -604,8 +573,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "CampusTests/CampusTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "CampusTests/Bluetooth Beacon Demo AppTests-Info.plist";
+				PRODUCT_NAME = "Bluetooth Beacon Demo AppTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -622,8 +591,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Campus/Campus-Prefix.pch";
-				INFOPLIST_FILE = "CampusTests/CampusTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "CampusTests/Bluetooth Beacon Demo AppTests-Info.plist";
+				PRODUCT_NAME = "Bluetooth Beacon Demo AppTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -632,7 +601,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7CC99DB9197F0D0B003E26F0 /* Build configuration list for PBXProject "Campus" */ = {
+		7CC99DB9197F0D0B003E26F0 /* Build configuration list for PBXProject "Bluetooth Beacon Demo App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7CC99DE8197F0D0C003E26F0 /* Debug */,
@@ -641,7 +610,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7CC99DEA197F0D0C003E26F0 /* Build configuration list for PBXNativeTarget "Campus" */ = {
+		7CC99DEA197F0D0C003E26F0 /* Build configuration list for PBXNativeTarget "Bluetooth Beacon Demo App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7CC99DEB197F0D0C003E26F0 /* Debug */,
@@ -650,7 +619,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7CC99DED197F0D0C003E26F0 /* Build configuration list for PBXNativeTarget "CampusTests" */ = {
+		7CC99DED197F0D0C003E26F0 /* Build configuration list for PBXNativeTarget "Bluetooth Beacon Demo AppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7CC99DEE197F0D0C003E26F0 /* Debug */,
