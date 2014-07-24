@@ -7,6 +7,7 @@
 //
 
 #import "GCPGimbalTempViewController.h"
+#import "GCPChartViewController.h"
 #import <FYX/FYX.h>
 #import <FYX/FYXVisitManager.h>
 #import <FYX/FYXTransmitter.h>
@@ -28,6 +29,8 @@
 @property (nonatomic, assign) NSInteger entranceDB;
 @property (nonatomic, assign) NSInteger exitDB;
 
+@property (nonatomic, strong) NSMutableArray *dbLevels; //y values
+@property (nonatomic, strong) NSMutableArray *occurrenceTime; //x values
 
 @end
 
@@ -38,6 +41,8 @@
     if (self) {
         self.entranceDB = -65;
         self.exitDB = -80;
+        _dbLevels = [[NSMutableArray alloc] init];
+        _occurrenceTime = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -90,7 +95,6 @@
     NSLog(@"\nBeacon Found\nName: %@\nTemperature: %@\nBattery: %@\n\n", visit.transmitter.name, visit.transmitter.temperature, visit.transmitter.battery);
 }
 - (void)receivedSighting:(FYXVisit *)visit updateTime:(NSDate *)updateTime RSSI:(NSNumber *)RSSI; {
-
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterNoStyle];
     [dateFormatter setTimeStyle:NSDateFormatterLongStyle];
@@ -100,6 +104,10 @@
         NSLog(@"Ignoring Beacon\nID: %@\n\n", visit.transmitter.identifier);
         return;
     }
+    
+    [self.dbLevels addObject:RSSI];
+    [self.occurrenceTime addObject:updateTime];
+    
     // this will be invoked when an authorized transmitter is sighted during an on-going visit
     NSString *details = [NSString stringWithFormat:@"Received Signal\nName: %@\nSignal: %@db\nTemperature: %@f\nBattery: %@", visit.transmitter.name, RSSI, visit.transmitter.temperature, visit.transmitter.battery];
     [self.singleBeaconLabel setText:details];
@@ -216,6 +224,11 @@
 }
 
 #pragma mark Private
+
+- (IBAction)viewGraph:(id)sender {
+    GCPChartViewController *chart = [[GCPChartViewController alloc] initWithXValues:self.occurrenceTime YValues:self.dbLevels];
+    [self.navigationController pushViewController:chart animated:YES];
+}
 
 -(void)sendInRangeNotification {
     NSDate *now = [NSDate date];
