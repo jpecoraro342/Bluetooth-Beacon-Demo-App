@@ -1,5 +1,5 @@
 //
-//  GCPTempViewController.h
+//  GCPEstimoteTempViewController.h
 //  Campus
 //
 //  Created by Joseph Pecoraro on 7/24/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GCPTempViewController : UIViewController
+@interface GCPEstimoteTempViewController : UIViewController
 
 @end

@@ -13,13 +13,15 @@
 @implementation GCPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [FYX setAppId:@"4381ecc9b6a12797aeaac6b595838cc00331fccf202ffb9ba96b5a29a7791364"
-        appSecret:@"8a0b43d9de6c618b86bb6a3d50b81ac5cc5a973fc7dc3af038ce724f76628518"
-      callbackUrl:@"comhatcherylabcampus://authcode"];
+    [FYX setAppId:kGimbalAppID
+        appSecret:kGimbalAppSecret
+      callbackUrl:kGimbalURL];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    self.window.rootViewController = [[GCPTempViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:[[GCPTempViewController alloc] init]];
+    
+    self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
     return YES;
 }
