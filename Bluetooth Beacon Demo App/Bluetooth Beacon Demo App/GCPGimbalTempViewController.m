@@ -11,19 +11,39 @@
 #import <FYX/FYXVisitManager.h>
 #import <FYX/FYXTransmitter.h>
 
-@interface GCPGimbalTempViewController () <FYXServiceDelegate, FYXVisitDelegate>
+@interface GCPGimbalTempViewController () <FYXServiceDelegate, FYXVisitDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong) FYXVisitManager *visitManager;
-@property (weak, nonatomic) IBOutlet UILabel *gimbalStatusLabel;
+@property (weak, nonatomic) IBOutlet UILabel *primaryStatusLabel;
+@property (weak, nonatomic) IBOutlet UILabel *secondaryStatusLabel;
 @property (weak, nonatomic) IBOutlet UILabel *singleBeaconLabel;
 @property (nonatomic, assign) NSInteger lastFiredNotification; //0 = no notification/reset 1 = Hot 2 = Cold
+
+@property (weak, nonatomic) IBOutlet UITextField *upperLimit;
+@property (weak, nonatomic) IBOutlet UITextField *lowerLimit;
+
+@property (nonatomic, assign) NSInteger entranceDB;
+@property (nonatomic, assign) NSInteger exitDB;
+
 
 @end
 
 @implementation GCPGimbalTempViewController
 
+-(instancetype)init {
+    self = [super init];
+    if (self) {
+        self.entranceDB = -65;
+        self.exitDB = -80;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.upperLimit setText:[NSString stringWithFormat:@"%zd", self.exitDB * -1]];
+    [self.lowerLimit setText:[NSString stringWithFormat:@"%zd", self.entranceDB * -1]];
     
     [FYX startService:self];
 }
@@ -33,7 +53,7 @@
 - (void)serviceStarted {
     // this will be invoked if the service has successfully started
     // bluetooth scanning will be started at this point.
-    [self setStatusLabel:@"FYX Service Was Started"];
+    [self setPrimaryStatusLabelText:@"FYX Service Was Started"];
     
     self.visitManager = [FYXVisitManager new];
     self.visitManager.delegate = self;
@@ -42,14 +62,14 @@
 
 - (void)startServiceFailed:(NSError *)error {
     // this will be called if the service has failed to start
-    [self setStatusLabel:@"FYX Service Start Failed: See Log for Details"];
+    [self setPrimaryStatusLabelText:@"FYX Service Start Failed: See Log for Details"];
     NSLog(@"%@", error);
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         NSLog(@"viewDidLoad called");
         //wait 3 seconds before exiting
         sleep(2);
-        [self setStatusLabel:@"Returning to main view now"];
+        [self setPrimaryStatusLabelText:@"Returning to main view now"];
         sleep(1);
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -63,7 +83,7 @@
 
 - (void)didArrive:(FYXVisit *)visit; {
     // this will be invoked when an authorized transmitter is sighted for the first time
-    [self setStatusLabel:@"A beacon has been discovered"];
+    [self setPrimaryStatusLabelText:@"A beacon has been discovered"];
     NSLog(@"\nBeacon Found\nName: %@\nTemperature: %@\nBattery: %@\n\n", visit.transmitter.name, visit.transmitter.temperature, visit.transmitter.battery);
 }
 - (void)receivedSighting:(FYXVisit *)visit updateTime:(NSDate *)updateTime RSSI:(NSNumber *)RSSI; {
@@ -71,7 +91,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterNoStyle];
     [dateFormatter setTimeStyle:NSDateFormatterLongStyle];
-    [self.gimbalStatusLabel setText:[NSString stringWithFormat:@"Last Updated: %@", [dateFormatter stringFromDate:updateTime]]];
+    [self.secondaryStatusLabel setText:[NSString stringWithFormat:@"Last Updated: %@", [dateFormatter stringFromDate:updateTime]]];
     
     if (![visit.transmitter.identifier isEqualToString:@"9as6-mrnmg"]) {
         NSLog(@"Ignoring Beacon\nID: %@\n\n", visit.transmitter.identifier);
@@ -81,8 +101,11 @@
     NSString *details = [NSString stringWithFormat:@"Received Signal\nName: %@\nSignal: %@db\nTemperature: %@f\nBattery: %@", visit.transmitter.name, RSSI, visit.transmitter.temperature, visit.transmitter.battery];
     [self.singleBeaconLabel setText:details];
     [self.singleBeaconLabel sizeToFit];
+    
     NSLog(@"\n%@\n\n", details);
-    if ([RSSI integerValue] > -60) {
+    if ([RSSI integerValue] > self.entranceDB) {
+        [self setPrimaryStatusLabelText:@"Beacon In Range"];
+        
         if (self.lastFiredNotification == 1)
             return;
         
@@ -95,7 +118,9 @@
         [notification setAlertBody:@"Beacon Has a Strong Signal"];
         [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     }
-    else if ([RSSI integerValue] < -80) {
+    else if ([RSSI integerValue] < self.exitDB) {
+        [self setPrimaryStatusLabelText:@"Beacon Out of Range"];
+        
         if (self.lastFiredNotification == 2)
             return;
         
@@ -105,7 +130,7 @@
         NSDate *dateToFire = [now dateByAddingTimeInterval:1];
         
         [notification setFireDate:dateToFire];
-        [notification setAlertBody:@"Beacon's Signal is Weakening"];
+        [notification setAlertBody:@"Beacon's Has a Week Signal"];
         [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     }
     else {
@@ -123,11 +148,89 @@
     NSLog(@"Beacon was in proximity for %.4f seconds\n\n", visit.dwellTime);
 }
 
+#pragma mark TextField Delegate
+
+- (IBAction)backgroundTapped:(id)sender {
+    [self.view endEditing:YES];
+}
+
+-(BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField {
+    NSInteger value = [textField.text integerValue];
+    value *= -1;
+    if ([textField isEqual:self.upperLimit]) {
+        if (value < self.entranceDB) {
+            self.exitDB = value;
+        }
+        else {
+            [self.upperLimit setText:[NSString stringWithFormat:@"%zd", self.exitDB * -1]];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could Not Set Upper Limit" message:@"Upper limit should have a higher magnitude than the lower limit" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert show];
+        }
+    }
+    else if ([textField isEqual:self.lowerLimit]) {
+        if (value > self.exitDB) {
+            self.entranceDB = value;
+        }
+        else {
+            [self.lowerLimit setText:[NSString stringWithFormat:@"%zd", self.entranceDB * -1]];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could Not Set Lower Limit" message:@"Lower limit should have a lower magnitude than the upper limit" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert show];
+        }
+    }
+}
+
+#pragma mark Keyboard Adjustment
+
+//register keyboard notification
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+//remove keyboard notification observer
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+//show/hide the keyboard
+- (void)keyboardWillShow:(NSNotification *)notification {
+    NSDictionary *userInfo = [notification userInfo];
+    CGSize kbSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        CGRect f = self.view.frame;
+        f.origin.y -= kbSize.height/2 + 10;
+        self.view.frame = f;
+    }];
+}
+
+-(void)keyboardWillHide:(NSNotification *)notification {
+    NSDictionary *userInfo = [notification userInfo];
+    CGSize kbSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        CGRect f = self.view.frame;
+        f.origin.y += kbSize.height/2 + 10;
+        self.view.frame = f;
+    }];
+}
+
 #pragma mark Private
 
--(void)setStatusLabel:(NSString*)status {
+-(void)setPrimaryStatusLabelText:(NSString*)status {
+    if ([self.primaryStatusLabel.text isEqualToString:status])
+        return;
+    
     NSLog(@"\n%@\n\n", status);
-    [self.gimbalStatusLabel setText:status];
+    [self.primaryStatusLabel setText:status];
 }
 
 - (void)didReceiveMemoryWarning {

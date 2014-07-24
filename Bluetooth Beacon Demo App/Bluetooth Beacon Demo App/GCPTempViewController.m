@@ -9,7 +9,7 @@
 #import "GCPTempViewController.h"
 #import "GCPGimbalTempViewController.h"
 #import "GCPEstimoteTempViewController.h"
-
+#import <FYX/FYX.h>
 
 @interface GCPTempViewController ()
 
@@ -24,6 +24,11 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self stopAllBroadcastingServices];
+}
+
 - (IBAction)openGimbalTest:(id)sender {
     GCPGimbalTempViewController *gimbal = [[GCPGimbalTempViewController alloc] init];
     [self.navigationController pushViewController:gimbal animated:YES];
@@ -36,6 +41,10 @@
 
 - (IBAction)openBuiltInBluetoothTest:(id)sender {
     
+}
+
+-(void)stopAllBroadcastingServices {
+    [FYX stopService];
 }
 
 - (void)didReceiveMemoryWarning {
