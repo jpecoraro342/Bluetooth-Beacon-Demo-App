@@ -19,6 +19,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *singleBeaconLabel;
 @property (nonatomic, assign) NSInteger lastFiredNotification; //0 = no notification/reset 1 = Hot 2 = Cold
 
+@property (nonatomic, strong) NSDate *lastInRangeNotification;
+@property (nonatomic, strong) NSDate *lastOutOfRangeNotification;
+
 @property (weak, nonatomic) IBOutlet UITextField *upperLimit;
 @property (weak, nonatomic) IBOutlet UITextField *lowerLimit;
 
@@ -110,13 +113,7 @@
             return;
         
         self.lastFiredNotification = 1;
-        UILocalNotification *notification = [[UILocalNotification alloc] init];
-        NSDate *now = [NSDate date];
-        NSDate *dateToFire = [now dateByAddingTimeInterval:1];
-        
-        [notification setFireDate:dateToFire];
-        [notification setAlertBody:@"Beacon Has a Strong Signal"];
-        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+        [self sendInRangeNotification];
     }
     else if ([RSSI integerValue] < self.exitDB) {
         [self setPrimaryStatusLabelText:@"Beacon Out of Range"];
@@ -125,13 +122,8 @@
             return;
         
         self.lastFiredNotification = 2;
-        UILocalNotification *notification = [[UILocalNotification alloc] init];
-        NSDate *now = [NSDate date];
-        NSDate *dateToFire = [now dateByAddingTimeInterval:1];
         
-        [notification setFireDate:dateToFire];
-        [notification setAlertBody:@"Beacon's Has a Week Signal"];
-        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+        [self sendOutOfRangeNotification];
     }
     else {
         if (self.lastFiredNotification == 0)
@@ -224,6 +216,52 @@
 }
 
 #pragma mark Private
+
+-(void)sendInRangeNotification {
+    NSDate *now = [NSDate date];
+    
+    if (self.lastInRangeNotification) {
+        NSTimeInterval timeSinceLastInRangeNotification = [now timeIntervalSinceDate:self.lastInRangeNotification];
+        
+        if (timeSinceLastInRangeNotification < 60) {
+            NSLog(@"\nIn range notification suppressed\n\n");
+            return;
+        }
+    }
+    
+    self.lastInRangeNotification = now;
+    
+    [self sendNotificationWithMessage:@"Beacon In Range"];
+}
+
+-(void)sendOutOfRangeNotification {
+    NSDate *now = [NSDate date];
+    
+    if (self.lastOutOfRangeNotification) {
+        NSTimeInterval timeSinceLastOutOfRangeNotification = [now timeIntervalSinceDate:self.lastOutOfRangeNotification];
+        
+        if (timeSinceLastOutOfRangeNotification < 60) {
+            NSLog(@"\nOut of range notification suppressed\n\n");
+            return;
+        }
+    }
+    
+    self.lastOutOfRangeNotification = now;
+    
+    [self sendNotificationWithMessage:@"Beacon Out of Range"];
+}
+
+-(void)sendNotificationWithMessage:(NSString*)message {
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    NSDate *now = [NSDate date];
+    
+    //one second delay gives the change to put the app in background
+    NSDate *dateToFire = [now dateByAddingTimeInterval:1];
+    
+    [notification setFireDate:dateToFire];
+    [notification setAlertBody:message];
+    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+}
 
 -(void)setPrimaryStatusLabelText:(NSString*)status {
     if ([self.primaryStatusLabel.text isEqualToString:status])
