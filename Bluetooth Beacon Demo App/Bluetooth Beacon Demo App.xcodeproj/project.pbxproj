@@ -22,6 +22,8 @@
 		7C6F6D2219816520007ADDF6 /* Bluetooth Beacon Demo App-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CC99DC9197F0D0B003E26F0 /* Bluetooth Beacon Demo App-Info.plist */; };
 		7C6F6D2719817E7B007ADDF6 /* GCPChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F6D2519817E7B007ADDF6 /* GCPChartViewController.m */; };
 		7C6F6D2819817E7B007ADDF6 /* GCPChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C6F6D2619817E7B007ADDF6 /* GCPChartViewController.xib */; };
+		7C6F6D2C198321FA007ADDF6 /* GCPGimbalIBeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F6D2A198321FA007ADDF6 /* GCPGimbalIBeaconViewController.m */; };
+		7C6F6D2D198321FA007ADDF6 /* GCPGimbalIBeaconViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C6F6D2B198321FA007ADDF6 /* GCPGimbalIBeaconViewController.xib */; };
 		7CC99DC2197F0D0B003E26F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DC1197F0D0B003E26F0 /* Foundation.framework */; };
 		7CC99DC4197F0D0B003E26F0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DC3197F0D0B003E26F0 /* CoreGraphics.framework */; };
 		7CC99DC6197F0D0B003E26F0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DC5197F0D0B003E26F0 /* UIKit.framework */; };
@@ -60,6 +62,9 @@
 		7C6F6D2419817E7B007ADDF6 /* GCPChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPChartViewController.h; sourceTree = "<group>"; };
 		7C6F6D2519817E7B007ADDF6 /* GCPChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPChartViewController.m; sourceTree = "<group>"; };
 		7C6F6D2619817E7B007ADDF6 /* GCPChartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GCPChartViewController.xib; sourceTree = "<group>"; };
+		7C6F6D29198321FA007ADDF6 /* GCPGimbalIBeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPGimbalIBeaconViewController.h; sourceTree = "<group>"; };
+		7C6F6D2A198321FA007ADDF6 /* GCPGimbalIBeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPGimbalIBeaconViewController.m; sourceTree = "<group>"; };
+		7C6F6D2B198321FA007ADDF6 /* GCPGimbalIBeaconViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GCPGimbalIBeaconViewController.xib; sourceTree = "<group>"; };
 		7CC99DBE197F0D0B003E26F0 /* Bluetooth Beacon Demo App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bluetooth Beacon Demo App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC99DC1197F0D0B003E26F0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7CC99DC3197F0D0B003E26F0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -247,6 +252,9 @@
 				7CC99E16198038F5003E26F0 /* GCPGimbalTempViewController.h */,
 				7CC99E17198038F5003E26F0 /* GCPGimbalTempViewController.m */,
 				7CC99E18198038F5003E26F0 /* GCPGimbalTempViewController.xib */,
+				7C6F6D29198321FA007ADDF6 /* GCPGimbalIBeaconViewController.h */,
+				7C6F6D2A198321FA007ADDF6 /* GCPGimbalIBeaconViewController.m */,
+				7C6F6D2B198321FA007ADDF6 /* GCPGimbalIBeaconViewController.xib */,
 				7C36A1D619814A5E005707CE /* GCPEstimoteTempViewController.h */,
 				7C36A1D719814A5E005707CE /* GCPEstimoteTempViewController.m */,
 				7C36A1D819814A5E005707CE /* GCPEstimoteTempViewController.xib */,
@@ -309,6 +317,9 @@
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
+							com.apple.iOS = {
+								enabled = 0;
+							};
 						};
 					};
 				};
@@ -338,6 +349,7 @@
 				7C36A1DF19814AA1005707CE /* GCPTempViewController.xib in Resources */,
 				7CC99DCC197F0D0B003E26F0 /* InfoPlist.strings in Resources */,
 				7C36A1DA19814A5E005707CE /* GCPEstimoteTempViewController.xib in Resources */,
+				7C6F6D2D198321FA007ADDF6 /* GCPGimbalIBeaconViewController.xib in Resources */,
 				7C6F6D2819817E7B007ADDF6 /* GCPChartViewController.xib in Resources */,
 				7C6F6D2219816520007ADDF6 /* Bluetooth Beacon Demo App-Info.plist in Resources */,
 				7CC99E1A198038F5003E26F0 /* GCPGimbalTempViewController.xib in Resources */,
@@ -404,6 +416,7 @@
 				7CC99DCE197F0D0B003E26F0 /* main.m in Sources */,
 				7C6F6D2719817E7B007ADDF6 /* GCPChartViewController.m in Sources */,
 				7CC99DD2197F0D0B003E26F0 /* GCPAppDelegate.m in Sources */,
+				7C6F6D2C198321FA007ADDF6 /* GCPGimbalIBeaconViewController.m in Sources */,
 				7C36A1DE19814AA1005707CE /* GCPTempViewController.m in Sources */,
 				7C36A1D919814A5E005707CE /* GCPEstimoteTempViewController.m in Sources */,
 			);

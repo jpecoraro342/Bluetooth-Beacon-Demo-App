@@ -1,18 +1,18 @@
 //
-//  GCPTempViewController.m
-//  Campus
+//  GCPGimbalIBeaconViewController.m
+//  Bluetooth Beacon Demo App
 //
-//  Created by Joseph Pecoraro on 7/23/14.
+//  Created by Joseph Pecoraro on 7/25/14.
 //  Copyright (c) 2014 Hatchery Lab, LLC. All rights reserved.
 //
 
-#import "GCPGimbalTempViewController.h"
+#import "GCPGimbalIBeaconViewController.h"
 #import "GCPChartViewController.h"
 #import <FYX/FYX.h>
 #import <FYX/FYXVisitManager.h>
 #import <FYX/FYXTransmitter.h>
 
-@interface GCPGimbalTempViewController () <FYXServiceDelegate, FYXVisitDelegate, UITextFieldDelegate>
+@interface GCPGimbalIBeaconViewController () <FYXServiceDelegate, FYXiBeaconVisitDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong) FYXVisitManager *visitManager;
 @property (weak, nonatomic) IBOutlet UILabel *primaryStatusLabel;
@@ -23,9 +23,6 @@
 @property (nonatomic, strong) NSDate *lastInRangeNotification;
 @property (nonatomic, strong) NSDate *lastOutOfRangeNotification;
 
-@property (weak, nonatomic) IBOutlet UITextField *upperLimit;
-@property (weak, nonatomic) IBOutlet UITextField *lowerLimit;
-
 @property (nonatomic, assign) NSInteger entranceDB;
 @property (nonatomic, assign) NSInteger exitDB;
 
@@ -34,7 +31,7 @@
 
 @end
 
-@implementation GCPGimbalTempViewController
+@implementation GCPGimbalIBeaconViewController
 
 -(instancetype)init {
     self = [super init];
@@ -50,9 +47,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.upperLimit setText:[NSString stringWithFormat:@"%zd", self.exitDB * -1]];
-    [self.lowerLimit setText:[NSString stringWithFormat:@"%zd", self.entranceDB * -1]];
-    
     [FYX startService:self];
 }
 
@@ -64,7 +58,7 @@
     [self setPrimaryStatusLabelText:@"FYX Service Was Started"];
     
     self.visitManager = [FYXVisitManager new];
-    self.visitManager.delegate = self;
+    self.visitManager.iBeaconDelegate = self;
     [self.visitManager start];
 }
 
@@ -87,30 +81,31 @@
     });
 }
 
-#pragma mark Gimbal FYXVisitDelegate
+#pragma mark Gimbal FYXiBeaconVisitDelegate
 
-- (void)didArrive:(FYXVisit *)visit; {
+- (void)didArrive:(FYXiBeaconVisit *)visit; {
+    NSLog(@"\n\nVisit IBeacon: \n%@\n\n", visit.iBeacon);
     // this will be invoked when an authorized transmitter is sighted for the first time
     [self setPrimaryStatusLabelText:@"A beacon has been discovered"];
     [self sendNotificationWithMessage:@"A Beacon Has Been Discovered"];
-    NSLog(@"\nBeacon Found\nName: %@\nTemperature: %@\nBattery: %@\n\n", visit.transmitter.name, visit.transmitter.temperature, visit.transmitter.battery);
+    NSLog(@"\nBeacon Found\nName: %@\nTemperature: %@\nBattery: %@\n\n", visit.iBeacon.identifier, visit.iBeacon.major, visit.iBeacon.minor);
 }
-- (void)receivedSighting:(FYXVisit *)visit updateTime:(NSDate *)updateTime RSSI:(NSNumber *)RSSI; {
+- (void)receivedSighting:(FYXiBeaconVisit *)visit updateTime:(NSDate *)updateTime RSSI:(NSNumber *)RSSI; {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterNoStyle];
     [dateFormatter setTimeStyle:NSDateFormatterLongStyle];
     [self.secondaryStatusLabel setText:[NSString stringWithFormat:@"Last Updated: %@", [dateFormatter stringFromDate:updateTime]]];
     
-    if (![visit.transmitter.identifier isEqualToString:@"9as6-mrnmg"]) {
-        NSLog(@"Ignoring Beacon\nID: %@\n\n", visit.transmitter.identifier);
-        return;
-    }
+//    if (![visit.transmitter.identifier isEqualToString:@"9as6-mrnmg"]) {
+//        NSLog(@"Ignoring Beacon\nID: %@\n\n", visit.transmitter.identifier);
+//        return;
+//    }
     
     [self.dbLevels addObject:RSSI];
     [self.occurrenceTime addObject:updateTime];
     
     // this will be invoked when an authorized transmitter is sighted during an on-going visit
-    NSString *details = [NSString stringWithFormat:@"Received Signal\nName: %@\nSignal: %@db\nTemperature: %@f\nBattery: %@", visit.transmitter.name, RSSI, visit.transmitter.temperature, visit.transmitter.battery];
+    NSString *details = [NSString stringWithFormat:@"Received Signal\nUUID: %@\nSignal: %@db\nMajor: %@f\nMinor: %@", visit.iBeacon.identifier, RSSI, visit.iBeacon.major, visit.iBeacon.minor];
     [self.singleBeaconLabel setText:details];
     [self.singleBeaconLabel sizeToFit];
     
@@ -143,9 +138,9 @@
     }
 }
 
-- (void)didDepart:(FYXVisit *)visit; {
+- (void)didDepart:(FYXiBeaconVisit *)visit; {
     // this will be invoked when an authorized transmitter has not been sighted for some time
-    [self setPrimaryStatusLabelText:[NSString stringWithFormat:@"Beacon: %@ has exited range\n", visit.transmitter.name]];
+    [self setPrimaryStatusLabelText:[NSString stringWithFormat:@"Beacon: %@ has exited range\n", visit.iBeacon.identifier]];
     NSLog(@"Beacon was in proximity for %.4f seconds\n\n", visit.dwellTime);
 }
 
@@ -158,31 +153,6 @@
 -(BOOL)textFieldShouldEndEditing:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
-}
-
--(void)textFieldDidEndEditing:(UITextField *)textField {
-    NSInteger value = [textField.text integerValue];
-    value *= -1;
-    if ([textField isEqual:self.upperLimit]) {
-        if (value < self.entranceDB) {
-            self.exitDB = value;
-        }
-        else {
-            [self.upperLimit setText:[NSString stringWithFormat:@"%zd", self.exitDB * -1]];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could Not Set Upper Limit" message:@"Upper limit should have a higher magnitude than the lower limit" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alert show];
-        }
-    }
-    else if ([textField isEqual:self.lowerLimit]) {
-        if (value > self.exitDB) {
-            self.entranceDB = value;
-        }
-        else {
-            [self.lowerLimit setText:[NSString stringWithFormat:@"%zd", self.entranceDB * -1]];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could Not Set Lower Limit" message:@"Lower limit should have a lower magnitude than the upper limit" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alert show];
-        }
-    }
 }
 
 #pragma mark Keyboard Adjustment
@@ -291,3 +261,4 @@
 }
 
 @end
+

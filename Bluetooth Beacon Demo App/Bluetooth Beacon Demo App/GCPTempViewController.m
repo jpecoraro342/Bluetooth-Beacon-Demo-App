@@ -9,6 +9,7 @@
 #import "GCPTempViewController.h"
 #import "GCPGimbalTempViewController.h"
 #import "GCPEstimoteTempViewController.h"
+#import "GCPGimbalIBeaconViewController.h"
 #import <FYX/FYX.h>
 
 @interface GCPTempViewController ()
@@ -32,6 +33,11 @@
 - (IBAction)openGimbalTest:(id)sender {
     GCPGimbalTempViewController *gimbal = [[GCPGimbalTempViewController alloc] init];
     [self.navigationController pushViewController:gimbal animated:YES];
+}
+
+- (IBAction)openGimbalIBeaconTest:(id)sender {
+    GCPGimbalIBeaconViewController *gimablIB = [[GCPGimbalIBeaconViewController alloc] init];
+    [self.navigationController pushViewController:gimablIB animated:YES];
 }
 
 - (IBAction)openEstimoteTest:(id)sender {

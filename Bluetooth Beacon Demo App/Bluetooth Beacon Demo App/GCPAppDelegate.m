@@ -13,16 +13,29 @@
 @implementation GCPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [FYX setAppId:kGimbalAppID
-        appSecret:kGimbalAppSecret
-      callbackUrl:kGimbalURL];
-    
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:[[GCPTempViewController alloc] init]];
-    
-    self.window.rootViewController = navController;
-    [self.window makeKeyAndVisible];
+    if (!launchOptions) {
+        [FYX setAppId:kGimbalAppID
+            appSecret:kGimbalAppSecret
+          callbackUrl:kGimbalURL];
+        
+        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:[[GCPTempViewController alloc] init]];
+        
+        self.window.rootViewController = navController;
+        [self.window makeKeyAndVisible];
+    }
+    else {
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        NSDate *now = [NSDate date];
+        
+        //one second delay gives the change to put the app in background
+        NSDate *dateToFire = [now dateByAddingTimeInterval:1];
+        
+        [notification setFireDate:dateToFire];
+        [notification setAlertBody:@"App Was Restarted In Background"];
+        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+    }
     return YES;
 }
 
@@ -32,6 +45,7 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
+    NSLog(@"\nApplication Entered Background\n\n");
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
