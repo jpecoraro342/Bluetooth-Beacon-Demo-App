@@ -24,6 +24,11 @@
 		7C6F6D2819817E7B007ADDF6 /* GCPChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C6F6D2619817E7B007ADDF6 /* GCPChartViewController.xib */; };
 		7C6F6D2C198321FA007ADDF6 /* GCPGimbalIBeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F6D2A198321FA007ADDF6 /* GCPGimbalIBeaconViewController.m */; };
 		7C6F6D2D198321FA007ADDF6 /* GCPGimbalIBeaconViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C6F6D2B198321FA007ADDF6 /* GCPGimbalIBeaconViewController.xib */; };
+		7C6F6D311986A889007ADDF6 /* GCPCoreBluetoothViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F6D2F1986A889007ADDF6 /* GCPCoreBluetoothViewController.m */; };
+		7C6F6D321986A889007ADDF6 /* GCPCoreBluetoothViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C6F6D301986A889007ADDF6 /* GCPCoreBluetoothViewController.xib */; };
+		7C6F6D351986B1A5007ADDF6 /* GCPBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F6D341986B1A5007ADDF6 /* GCPBeacon.m */; };
+		7C6F6D391986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F6D371986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.m */; };
+		7C6F6D3A1986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C6F6D381986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.xib */; };
 		7CC99DC2197F0D0B003E26F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DC1197F0D0B003E26F0 /* Foundation.framework */; };
 		7CC99DC4197F0D0B003E26F0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DC3197F0D0B003E26F0 /* CoreGraphics.framework */; };
 		7CC99DC6197F0D0B003E26F0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DC5197F0D0B003E26F0 /* UIKit.framework */; };
@@ -65,6 +70,14 @@
 		7C6F6D29198321FA007ADDF6 /* GCPGimbalIBeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPGimbalIBeaconViewController.h; sourceTree = "<group>"; };
 		7C6F6D2A198321FA007ADDF6 /* GCPGimbalIBeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPGimbalIBeaconViewController.m; sourceTree = "<group>"; };
 		7C6F6D2B198321FA007ADDF6 /* GCPGimbalIBeaconViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GCPGimbalIBeaconViewController.xib; sourceTree = "<group>"; };
+		7C6F6D2E1986A889007ADDF6 /* GCPCoreBluetoothViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPCoreBluetoothViewController.h; sourceTree = "<group>"; };
+		7C6F6D2F1986A889007ADDF6 /* GCPCoreBluetoothViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPCoreBluetoothViewController.m; sourceTree = "<group>"; };
+		7C6F6D301986A889007ADDF6 /* GCPCoreBluetoothViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GCPCoreBluetoothViewController.xib; sourceTree = "<group>"; };
+		7C6F6D331986B1A5007ADDF6 /* GCPBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPBeacon.h; sourceTree = "<group>"; };
+		7C6F6D341986B1A5007ADDF6 /* GCPBeacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPBeacon.m; sourceTree = "<group>"; };
+		7C6F6D361986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPStandardBeaconTableViewCell.h; sourceTree = "<group>"; };
+		7C6F6D371986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPStandardBeaconTableViewCell.m; sourceTree = "<group>"; };
+		7C6F6D381986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GCPStandardBeaconTableViewCell.xib; sourceTree = "<group>"; };
 		7CC99DBE197F0D0B003E26F0 /* Bluetooth Beacon Demo App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bluetooth Beacon Demo App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC99DC1197F0D0B003E26F0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7CC99DC3197F0D0B003E26F0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -244,6 +257,8 @@
 			isa = PBXGroup;
 			children = (
 				7C36A1E019814BBC005707CE /* GCPConstants.h */,
+				7C6F6D331986B1A5007ADDF6 /* GCPBeacon.h */,
+				7C6F6D341986B1A5007ADDF6 /* GCPBeacon.m */,
 				7CC99DD0197F0D0B003E26F0 /* GCPAppDelegate.h */,
 				7CC99DD1197F0D0B003E26F0 /* GCPAppDelegate.m */,
 				7C36A1DB19814AA1005707CE /* GCPTempViewController.h */,
@@ -255,12 +270,18 @@
 				7C6F6D29198321FA007ADDF6 /* GCPGimbalIBeaconViewController.h */,
 				7C6F6D2A198321FA007ADDF6 /* GCPGimbalIBeaconViewController.m */,
 				7C6F6D2B198321FA007ADDF6 /* GCPGimbalIBeaconViewController.xib */,
+				7C6F6D2E1986A889007ADDF6 /* GCPCoreBluetoothViewController.h */,
+				7C6F6D2F1986A889007ADDF6 /* GCPCoreBluetoothViewController.m */,
+				7C6F6D301986A889007ADDF6 /* GCPCoreBluetoothViewController.xib */,
 				7C36A1D619814A5E005707CE /* GCPEstimoteTempViewController.h */,
 				7C36A1D719814A5E005707CE /* GCPEstimoteTempViewController.m */,
 				7C36A1D819814A5E005707CE /* GCPEstimoteTempViewController.xib */,
 				7C6F6D2419817E7B007ADDF6 /* GCPChartViewController.h */,
 				7C6F6D2519817E7B007ADDF6 /* GCPChartViewController.m */,
 				7C6F6D2619817E7B007ADDF6 /* GCPChartViewController.xib */,
+				7C6F6D361986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.h */,
+				7C6F6D371986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.m */,
+				7C6F6D381986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.xib */,
 				7CC99DD3197F0D0B003E26F0 /* Images.xcassets */,
 				7CC99DC8197F0D0B003E26F0 /* Supporting Files */,
 			);
@@ -347,12 +368,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C36A1DF19814AA1005707CE /* GCPTempViewController.xib in Resources */,
+				7C6F6D3A1986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.xib in Resources */,
 				7CC99DCC197F0D0B003E26F0 /* InfoPlist.strings in Resources */,
 				7C36A1DA19814A5E005707CE /* GCPEstimoteTempViewController.xib in Resources */,
 				7C6F6D2D198321FA007ADDF6 /* GCPGimbalIBeaconViewController.xib in Resources */,
 				7C6F6D2819817E7B007ADDF6 /* GCPChartViewController.xib in Resources */,
 				7C6F6D2219816520007ADDF6 /* Bluetooth Beacon Demo App-Info.plist in Resources */,
 				7CC99E1A198038F5003E26F0 /* GCPGimbalTempViewController.xib in Resources */,
+				7C6F6D321986A889007ADDF6 /* GCPCoreBluetoothViewController.xib in Resources */,
 				7CC99DD4197F0D0B003E26F0 /* Images.xcassets in Resources */,
 				7C6F6D1D19816076007ADDF6 /* DataModels.bundle in Resources */,
 				7C6F6D1F19816076007ADDF6 /* rules.txt in Resources */,
@@ -412,12 +435,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C6F6D351986B1A5007ADDF6 /* GCPBeacon.m in Sources */,
 				7CC99E19198038F5003E26F0 /* GCPGimbalTempViewController.m in Sources */,
 				7CC99DCE197F0D0B003E26F0 /* main.m in Sources */,
 				7C6F6D2719817E7B007ADDF6 /* GCPChartViewController.m in Sources */,
+				7C6F6D391986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.m in Sources */,
 				7CC99DD2197F0D0B003E26F0 /* GCPAppDelegate.m in Sources */,
 				7C6F6D2C198321FA007ADDF6 /* GCPGimbalIBeaconViewController.m in Sources */,
 				7C36A1DE19814AA1005707CE /* GCPTempViewController.m in Sources */,
+				7C6F6D311986A889007ADDF6 /* GCPCoreBluetoothViewController.m in Sources */,
 				7C36A1D919814A5E005707CE /* GCPEstimoteTempViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

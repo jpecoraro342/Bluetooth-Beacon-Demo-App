@@ -10,6 +10,7 @@
 #import "GCPGimbalTempViewController.h"
 #import "GCPEstimoteTempViewController.h"
 #import "GCPGimbalIBeaconViewController.h"
+#import "GCPCoreBluetoothViewController.h"
 #import <FYX/FYX.h>
 
 @interface GCPTempViewController ()
@@ -46,7 +47,8 @@
 }
 
 - (IBAction)openBuiltInBluetoothTest:(id)sender {
-    
+    GCPCoreBluetoothViewController *corebluetooth = [[GCPCoreBluetoothViewController alloc] init];
+    [self.navigationController pushViewController:corebluetooth animated:YES];
 }
 
 -(void)stopAllBroadcastingServices {
