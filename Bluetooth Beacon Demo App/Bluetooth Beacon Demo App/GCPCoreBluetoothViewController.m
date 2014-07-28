@@ -68,7 +68,7 @@
         NSString *identifier = [NSString stringWithFormat:@"%@-%zd-%zd", [beacon.proximityUUID UUIDString], [beacon.major integerValue], [beacon.minor integerValue]];
         GCPBeacon *updateBeacon = [self.beacons objectForKey:identifier];
         [updateBeacon updateBeaconWithCLBeacon:beacon];
-        if (beacon.proximity == CLProximityNear) {
+        if (beacon.proximity == CLProximityNear && updateBeacon.hasBeenReset) {
             [self fireInRangeUpdate:updateBeacon];
         }
     }
@@ -107,6 +107,7 @@
                                                                            //major:item.major
                                                                            //minor:item.minor
                                                                       identifier:item.name];
+    beaconRegion.notifyEntryStateOnDisplay = YES;
     return beaconRegion;
 }
 
@@ -150,6 +151,7 @@
     }
     
     beacon.lastNotificationDate = now;
+    beacon.hasBeenReset = NO;
     
     [self sendNotificationWithMessage:[NSString stringWithFormat:@"%@ Is Near", beacon.name]];
 }

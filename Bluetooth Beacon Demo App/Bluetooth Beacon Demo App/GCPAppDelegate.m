@@ -8,24 +8,33 @@
 
 #import "GCPAppDelegate.h"
 #import "GCPTempViewController.h"
+#import "GCPBeacon.h"
 #import <FYX/FYX.h>
+
+@import CoreLocation;
+
+@interface GCPAppDelegate () <CLLocationManagerDelegate>
+
+@property (strong, nonatomic) CLLocationManager *locationManager;
+
+@end
 
 @implementation GCPAppDelegate
 
+#pragma mark Application Delegate
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    if (!launchOptions) {
-        [FYX setAppId:kGimbalAppID
-            appSecret:kGimbalAppSecret
-          callbackUrl:kGimbalURL];
-        
-        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-        
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:[[GCPTempViewController alloc] init]];
-        
-        self.window.rootViewController = navController;
-        [self.window makeKeyAndVisible];
-    }
-    else {
+    [FYX setAppId:kGimbalAppID
+        appSecret:kGimbalAppSecret
+      callbackUrl:kGimbalURL];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:[[GCPTempViewController alloc] init]];
+    
+    self.window.rootViewController = navController;
+    [self.window makeKeyAndVisible];
+    
+    if (launchOptions) {
         UILocalNotification *notification = [[UILocalNotification alloc] init];
         NSDate *now = [NSDate date];
         
@@ -34,7 +43,14 @@
         [notification setFireDate:dateToFire];
         [notification setAlertBody:@"App Was Restarted In Background"];
         [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+        
+        NSLog(@"\nApp Restarted In Background\n\n");
+        
+        _locationManager = [[CLLocationManager alloc] init];
+        _locationManager.delegate = self;
+        NSLog(@"\nLocation Manager Reinitialized, not sure what to do now...\n\n");
     }
+
     return YES;
 }
 
@@ -80,6 +96,27 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     NSLog(@"\nApplication Will Terminate\n\n");
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark CLLocation Delegate
+
+- (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region {
+    if(state == CLRegionStateInside) {
+        NSLog(@"\nYou Are Inside The Region\n\n");
+    }
+    else if(state == CLRegionStateOutside) {
+        NSLog(@"\nYou Are Outside The Region\n\n");
+    }
+    else {
+        NSLog(@"\nYou are neither inside nore outside the region.\n\n");
+        return;
+    }
+}
+
+-(void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region {
+    for (CLBeacon *beacon in beacons) {
+        NSLog(@"Received Beacon Signal\nUUID:%@\nSignal: %zd\nMajor: %zd\nMinor: %zd", [beacon.proximityUUID UUIDString], beacon.rssi, [beacon.major integerValue], [beacon.minor integerValue]);
+    }
 }
 
 @end

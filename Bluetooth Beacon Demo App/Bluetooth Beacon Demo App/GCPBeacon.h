@@ -22,6 +22,7 @@
 @property (nonatomic, copy) NSString *distance;
 @property (nonatomic, assign) double accuracy;
 
+@property (nonatomic, assign) BOOL hasBeenReset;
 @property (nonatomic, strong) NSDate *lastNotificationDate;
 
 -(void)updateBeaconWithCLBeacon:(CLBeacon *)beacon;

@@ -23,6 +23,7 @@
 -(NSString *)nameForProximity:(CLProximity)proximity {
     switch (proximity) {
         case CLProximityUnknown:
+            self.hasBeenReset = YES;
             return @"Unknown";
             break;
         case CLProximityImmediate:
@@ -32,6 +33,7 @@
             return @"Near";
             break;
         case CLProximityFar:
+            self.hasBeenReset = YES;
             return @"Far";
             break;
     }

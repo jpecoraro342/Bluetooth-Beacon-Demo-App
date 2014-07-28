@@ -83,23 +83,19 @@
 
 #pragma mark Gimbal FYXiBeaconVisitDelegate
 
-- (void)didArrive:(FYXiBeaconVisit *)visit; {
+-(void)didArriveIBeacon:(FYXiBeaconVisit *)visit {
     NSLog(@"\n\nVisit IBeacon: \n%@\n\n", visit.iBeacon);
     // this will be invoked when an authorized transmitter is sighted for the first time
     [self setPrimaryStatusLabelText:@"A beacon has been discovered"];
     [self sendNotificationWithMessage:@"A Beacon Has Been Discovered"];
     NSLog(@"\nBeacon Found\nName: %@\nTemperature: %@\nBattery: %@\n\n", visit.iBeacon.identifier, visit.iBeacon.major, visit.iBeacon.minor);
 }
-- (void)receivedSighting:(FYXiBeaconVisit *)visit updateTime:(NSDate *)updateTime RSSI:(NSNumber *)RSSI; {
+
+-(void)receivedIBeaconSighting:(FYXiBeaconVisit *)visit updateTime:(NSDate *)updateTime RSSI:(NSNumber *)RSSI {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterNoStyle];
     [dateFormatter setTimeStyle:NSDateFormatterLongStyle];
     [self.secondaryStatusLabel setText:[NSString stringWithFormat:@"Last Updated: %@", [dateFormatter stringFromDate:updateTime]]];
-    
-//    if (![visit.transmitter.identifier isEqualToString:@"9as6-mrnmg"]) {
-//        NSLog(@"Ignoring Beacon\nID: %@\n\n", visit.transmitter.identifier);
-//        return;
-//    }
     
     [self.dbLevels addObject:RSSI];
     [self.occurrenceTime addObject:updateTime];
@@ -138,8 +134,7 @@
     }
 }
 
-- (void)didDepart:(FYXiBeaconVisit *)visit; {
-    // this will be invoked when an authorized transmitter has not been sighted for some time
+-(void)didDepartIBeacon:(FYXiBeaconVisit *)visit {
     [self setPrimaryStatusLabelText:[NSString stringWithFormat:@"Beacon: %@ has exited range\n", visit.iBeacon.identifier]];
     NSLog(@"Beacon was in proximity for %.4f seconds\n\n", visit.dwellTime);
 }
