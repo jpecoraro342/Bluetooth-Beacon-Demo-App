@@ -29,6 +29,7 @@
 		7C6F6D351986B1A5007ADDF6 /* GCPBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F6D341986B1A5007ADDF6 /* GCPBeacon.m */; };
 		7C6F6D391986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F6D371986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.m */; };
 		7C6F6D3A1986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C6F6D381986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.xib */; };
+		7C6F6D3D198826D9007ADDF6 /* GCPExtendedNSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F6D3C198826D9007ADDF6 /* GCPExtendedNSLog.m */; };
 		7CC99DC2197F0D0B003E26F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DC1197F0D0B003E26F0 /* Foundation.framework */; };
 		7CC99DC4197F0D0B003E26F0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DC3197F0D0B003E26F0 /* CoreGraphics.framework */; };
 		7CC99DC6197F0D0B003E26F0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DC5197F0D0B003E26F0 /* UIKit.framework */; };
@@ -78,6 +79,8 @@
 		7C6F6D361986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPStandardBeaconTableViewCell.h; sourceTree = "<group>"; };
 		7C6F6D371986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPStandardBeaconTableViewCell.m; sourceTree = "<group>"; };
 		7C6F6D381986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GCPStandardBeaconTableViewCell.xib; sourceTree = "<group>"; };
+		7C6F6D3B198826D9007ADDF6 /* GCPExtendedNSLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPExtendedNSLog.h; sourceTree = "<group>"; };
+		7C6F6D3C198826D9007ADDF6 /* GCPExtendedNSLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPExtendedNSLog.m; sourceTree = "<group>"; };
 		7CC99DBE197F0D0B003E26F0 /* Bluetooth Beacon Demo App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bluetooth Beacon Demo App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC99DC1197F0D0B003E26F0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7CC99DC3197F0D0B003E26F0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -256,6 +259,8 @@
 		7CC99DC7197F0D0B003E26F0 /* BluetoothBeaconDemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				7C6F6D3B198826D9007ADDF6 /* GCPExtendedNSLog.h */,
+				7C6F6D3C198826D9007ADDF6 /* GCPExtendedNSLog.m */,
 				7C36A1E019814BBC005707CE /* GCPConstants.h */,
 				7C6F6D331986B1A5007ADDF6 /* GCPBeacon.h */,
 				7C6F6D341986B1A5007ADDF6 /* GCPBeacon.m */,
@@ -440,6 +445,7 @@
 				7CC99DCE197F0D0B003E26F0 /* main.m in Sources */,
 				7C6F6D2719817E7B007ADDF6 /* GCPChartViewController.m in Sources */,
 				7C6F6D391986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.m in Sources */,
+				7C6F6D3D198826D9007ADDF6 /* GCPExtendedNSLog.m in Sources */,
 				7CC99DD2197F0D0B003E26F0 /* GCPAppDelegate.m in Sources */,
 				7C6F6D2C198321FA007ADDF6 /* GCPGimbalIBeaconViewController.m in Sources */,
 				7C36A1DE19814AA1005707CE /* GCPTempViewController.m in Sources */,

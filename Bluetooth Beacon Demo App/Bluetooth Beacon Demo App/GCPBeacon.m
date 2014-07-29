@@ -17,7 +17,7 @@
 }
 
 -(void)updateIdentifier {
-    self.identifier = [NSString stringWithFormat:@"%@-%zd-%zd", [self.uuid UUIDString], self.major, self.minor];
+    self.identifier = [NSString stringWithFormat:@"%@:%zd:%zd", [self.uuid UUIDString], self.major, self.minor];
 }
 
 -(NSString *)nameForProximity:(CLProximity)proximity {

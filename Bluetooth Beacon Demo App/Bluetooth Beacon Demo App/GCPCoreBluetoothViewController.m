@@ -65,7 +65,7 @@
 -(void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region {
     for (CLBeacon *beacon in beacons) {
         NSLog(@"Received Beacon Signal\nUUID:%@\nSignal: %zd\nMajor: %zd\nMinor: %zd", [beacon.proximityUUID UUIDString], beacon.rssi, [beacon.major integerValue], [beacon.minor integerValue]);
-        NSString *identifier = [NSString stringWithFormat:@"%@-%zd-%zd", [beacon.proximityUUID UUIDString], [beacon.major integerValue], [beacon.minor integerValue]];
+        NSString *identifier = [NSString stringWithFormat:@"%@:%zd:%zd", [beacon.proximityUUID UUIDString], [beacon.major integerValue], [beacon.minor integerValue]];
         GCPBeacon *updateBeacon = [self.beacons objectForKey:identifier];
         [updateBeacon updateBeaconWithCLBeacon:beacon];
         if (beacon.proximity == CLProximityNear && updateBeacon.hasBeenReset) {

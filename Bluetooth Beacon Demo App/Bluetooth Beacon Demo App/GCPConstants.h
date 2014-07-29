@@ -16,5 +16,9 @@
 #define kGimbalAppSecret @"8a0b43d9de6c618b86bb6a3d50b81ac5cc5a973fc7dc3af038ce724f76628518"
 #define kGimbalURL @"comhatcherylabcampus://authcode"
 
+//Logging
+#import "GCPExtendedNSLog.h"
+#define NSLog(args...) ExtendNSLog(__FILE__,__LINE__,__PRETTY_FUNCTION__,args);
+
 
 #endif
