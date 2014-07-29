@@ -165,11 +165,11 @@
 #pragma mark Gimbal FYXiBeaconVisitDelegate
 
 -(void)didArriveIBeacon:(FYXiBeaconVisit *)visit {
-    NSLog(@"\n\nVisit IBeacon: \n%@\n\n", visit.iBeacon);
+    NSLog(@"\nVisit IBeacon: \n%@", visit.iBeacon);
     // this will be invoked when an authorized transmitter is sighted for the first time
     [self setPrimaryStatusLabelText:@"A beacon has been discovered"];
     [self sendNotificationWithMessage:@"A Beacon Has Been Discovered"];
-    NSLog(@"\nBeacon Found\nUUID: %@\nMajor: %@\nMinor: %@\n\n", visit.iBeacon.uuid, visit.iBeacon.major, visit.iBeacon.minor);
+    NSLog(@"Beacon Found\nUUID: %@\nMajor: %@\nMinor: %@", visit.iBeacon.uuid, visit.iBeacon.major, visit.iBeacon.minor);
 }
 
 -(void)receivedIBeaconSighting:(FYXiBeaconVisit *)visit updateTime:(NSDate *)updateTime RSSI:(NSNumber *)RSSI {
@@ -180,7 +180,7 @@
     
     GCPBeacon *beacon = [self.beaconDictionary objectForKey:visit.iBeacon.identifier];
     if (!beacon) {
-        NSLog(@"\nAn Unknown Beacon Entered Range\nIdentifier:%@\n\n", visit.iBeacon.identifier);
+        NSLog(@"An Unknown Beacon Entered Range\nIdentifier:%@", visit.iBeacon.identifier);
         return;
     }
     
@@ -198,7 +198,7 @@
     // this will be invoked when an authorized transmitter is sighted during an on-going visit
     NSString *details = [NSString stringWithFormat:@"Received Signal\nUUID: %@\nSignal: %@db\nMajor: %@\nMinor: %@", visit.iBeacon.uuid, RSSI, visit.iBeacon.major, visit.iBeacon.minor];
     
-    NSLog(@"\n%@\n\n", details);
+    NSLog(@"%@", details);
     
     if ([RSSI integerValue] > self.entranceDB) {
         [self setPrimaryStatusLabelText:@"Beacon In Range"];
@@ -224,14 +224,14 @@
         if (self.lastFiredNotification == 0)
             return;
         
-        NSLog(@"Beacon Signal Notification Reset\n\n");
+        NSLog(@"Beacon Signal Notification Reset");
         self.lastFiredNotification = 0;
     }
 }
 
 -(void)didDepartIBeacon:(FYXiBeaconVisit *)visit {
     [self setPrimaryStatusLabelText:@"A Beacon has exited range"];
-    NSLog(@"Beacon was in proximity for %.4f seconds\n\n", visit.dwellTime);
+    NSLog(@"Beacon was in proximity for %.4f seconds", visit.dwellTime);
 }
 
 #pragma mark TextField Delegate
@@ -259,7 +259,7 @@
         NSTimeInterval timeSinceLastInRangeNotification = [now timeIntervalSinceDate:self.lastInRangeNotification];
         
         if (timeSinceLastInRangeNotification < 60) {
-            NSLog(@"\nIn range notification suppressed\n\n");
+            NSLog(@"In range notification suppressed");
             return;
         }
     }
@@ -276,7 +276,7 @@
         NSTimeInterval timeSinceLastOutOfRangeNotification = [now timeIntervalSinceDate:self.lastOutOfRangeNotification];
         
         if (timeSinceLastOutOfRangeNotification < 60) {
-            NSLog(@"\nOut of range notification suppressed\n\n");
+            NSLog(@"Out of range notification suppressed");
             return;
         }
     }
@@ -288,6 +288,8 @@
 
 -(void)sendNotificationWithMessage:(NSString*)message {
     UILocalNotification *notification = [[UILocalNotification alloc] init];
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:@"Gimbal iBeacon SDK", @"classType", nil];
+    notification.userInfo = dict;
     NSDate *now = [NSDate date];
     
     //one second delay gives the change to put the app in background
@@ -302,7 +304,7 @@
     if ([self.primaryStatusLabel.text isEqualToString:status])
         return;
     
-    NSLog(@"\n%@\n\n", status);
+    NSLog(@"%@", status);
     [self.primaryStatusLabel setText:status];
 }
 

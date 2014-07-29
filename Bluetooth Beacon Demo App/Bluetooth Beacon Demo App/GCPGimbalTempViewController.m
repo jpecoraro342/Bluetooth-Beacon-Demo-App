@@ -92,8 +92,8 @@
 - (void)didArrive:(FYXVisit *)visit; {
     // this will be invoked when an authorized transmitter is sighted for the first time
     [self setPrimaryStatusLabelText:@"A beacon has been discovered"];
-    [self sendNotificationWithMessage:@"A Beacon Has Been Discovered"];
-    NSLog(@"\nBeacon Found\nName: %@\nTemperature: %@\nBattery: %@\n\n", visit.transmitter.name, visit.transmitter.temperature, visit.transmitter.battery);
+    [self sendNotificationWithMessage:[NSString stringWithFormat:@"A Beacon Has Been Discovered: %@", visit.transmitter.name]];
+    NSLog(@"Beacon Found\nName: %@\nTemperature: %@\nBattery: %@", visit.transmitter.name, visit.transmitter.temperature, visit.transmitter.battery);
 }
 - (void)receivedSighting:(FYXVisit *)visit updateTime:(NSDate *)updateTime RSSI:(NSNumber *)RSSI; {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -102,7 +102,7 @@
     [self.secondaryStatusLabel setText:[NSString stringWithFormat:@"Last Updated: %@", [dateFormatter stringFromDate:updateTime]]];
     
     if (![visit.transmitter.identifier isEqualToString:@"9as6-mrnmg"]) {
-        NSLog(@"Ignoring Beacon\nID: %@\n\n", visit.transmitter.identifier);
+        NSLog(@"Ignoring Beacon\nID: %@", visit.transmitter.identifier);
         return;
     }
     
@@ -114,7 +114,7 @@
     [self.singleBeaconLabel setText:details];
     [self.singleBeaconLabel sizeToFit];
     
-    NSLog(@"\n%@\n\n", details);
+    NSLog(@"%@", details);
     if ([RSSI integerValue] > self.entranceDB) {
         [self setPrimaryStatusLabelText:@"Beacon In Range"];
         
@@ -138,7 +138,7 @@
         if (self.lastFiredNotification == 0)
             return;
         
-        NSLog(@"Beacon Signal Notification Reset\n\n");
+        NSLog(@"Beacon Signal Notification Reset");
         self.lastFiredNotification = 0;
     }
 }
@@ -146,7 +146,7 @@
 - (void)didDepart:(FYXVisit *)visit; {
     // this will be invoked when an authorized transmitter has not been sighted for some time
     [self setPrimaryStatusLabelText:[NSString stringWithFormat:@"Beacon: %@ has exited range\n", visit.transmitter.name]];
-    NSLog(@"Beacon was in proximity for %.4f seconds\n\n", visit.dwellTime);
+    NSLog(@"Beacon was in proximity for %.4f seconds", visit.dwellTime);
 }
 
 #pragma mark TextField Delegate
@@ -238,7 +238,7 @@
         NSTimeInterval timeSinceLastInRangeNotification = [now timeIntervalSinceDate:self.lastInRangeNotification];
         
         if (timeSinceLastInRangeNotification < 60) {
-            NSLog(@"\nIn range notification suppressed\n\n");
+            NSLog(@"In range notification suppressed");
             return;
         }
     }
@@ -255,7 +255,7 @@
         NSTimeInterval timeSinceLastOutOfRangeNotification = [now timeIntervalSinceDate:self.lastOutOfRangeNotification];
         
         if (timeSinceLastOutOfRangeNotification < 60) {
-            NSLog(@"\nOut of range notification suppressed\n\n");
+            NSLog(@"Out of range notification suppressed");
             return;
         }
     }
@@ -267,6 +267,8 @@
 
 -(void)sendNotificationWithMessage:(NSString*)message {
     UILocalNotification *notification = [[UILocalNotification alloc] init];
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:@"Gimbal SDK", @"classType", nil];
+    notification.userInfo = dict;
     NSDate *now = [NSDate date];
     
     //one second delay gives the change to put the app in background
@@ -281,7 +283,7 @@
     if ([self.primaryStatusLabel.text isEqualToString:status])
         return;
     
-    NSLog(@"\n%@\n\n", status);
+    NSLog(@"%@", status);
     [self.primaryStatusLabel setText:status];
 }
 

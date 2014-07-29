@@ -67,7 +67,7 @@
 
 -(void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region {
     for (CLBeacon *beacon in beacons) {
-        NSLog(@"\nReceived Beacon Signal\nUUID:%@\nSignal: %zd\nMajor: %zd\nMinor: %zd\n\n", [beacon.proximityUUID UUIDString], beacon.rssi, [beacon.major integerValue], [beacon.minor integerValue]);
+        NSLog(@"Received Beacon Signal\nUUID:%@\nSignal: %zd\nMajor: %zd\nMinor: %zd", [beacon.proximityUUID UUIDString], beacon.rssi, [beacon.major integerValue], [beacon.minor integerValue]);
         NSString *identifier = [NSString stringWithFormat:@"%@:%zd:%zd", [beacon.proximityUUID UUIDString], [beacon.major integerValue], [beacon.minor integerValue]];
         GCPBeacon *updateBeacon = [self.beacons objectForKey:identifier];
         [updateBeacon updateBeaconWithCLBeacon:beacon];
@@ -76,11 +76,11 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error {
-    NSLog(@"\nFailed monitoring region: %@\nError: %@\n\n", region, error);
+    NSLog(@"Failed monitoring region: %@\nError: %@", region, error);
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    NSLog(@"\nLocation manager failed: %@\n\n", error);
+    NSLog(@"Location manager failed: %@", error);
 }
 
 #pragma mark Private
@@ -90,7 +90,7 @@
         CLBeaconRegion *beaconRegion = [self beaconRegionWithItem:[self.listOfBeacons objectAtIndex:i]];
         [self.locationManager startMonitoringForRegion:beaconRegion];
         [self.locationManager startRangingBeaconsInRegion:beaconRegion];
-        NSLog(@"\n%@\n\n", self.locationManager.monitoredRegions);
+        NSLog(@"%@", self.locationManager.monitoredRegions);
     }
 }
 

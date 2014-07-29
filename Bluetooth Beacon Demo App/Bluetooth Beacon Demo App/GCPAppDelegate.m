@@ -44,11 +44,11 @@
         [notification setAlertBody:@"App Was Restarted In Background"];
         [[UIApplication sharedApplication] scheduleLocalNotification:notification];
         
-        NSLog(@"\nApp Restarted In Background\n\n");
+        NSLog(@"App Restarted In Background");
         
         _locationManager = [[CLLocationManager alloc] init];
         _locationManager.delegate = self;
-        NSLog(@"\nLocation Manager Reinitialized, not sure what to do now...\n\n");
+        NSLog(@"Location Manager Reinitialized, not sure what to do now...");
     }
 
     return YES;
@@ -57,7 +57,7 @@
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     UIApplicationState state = [application applicationState];
     if (state == UIApplicationStateActive) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Beacon In Range"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[notification.userInfo objectForKey:@"classType"]
                                                         message:notification.alertBody
                                                        delegate:self cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
@@ -69,29 +69,29 @@
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-    NSLog(@"\nApplication Will Resign Active\n");
+    NSLog(@"Application Will Resign Active\n");
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    NSLog(@"\nApplication Entered Background\n\n");
+    NSLog(@"Application Entered Background");
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    NSLog(@"\nApplication Will Enter Foreground\n\n");
+    NSLog(@"Application Will Enter Foreground");
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    NSLog(@"\nApplication Did Become Active\n\n");
+    NSLog(@"Application Did Become Active");
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    NSLog(@"\nApplication Will Terminate\n\n");
+    NSLog(@"Application Will Terminate");
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
@@ -99,13 +99,13 @@
 
 - (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region {
     if(state == CLRegionStateInside) {
-        NSLog(@"\nYou Are Inside The Region\n\n");
+        NSLog(@"You Are Inside The Region");
     }
     else if(state == CLRegionStateOutside) {
-        NSLog(@"\nYou Are Outside The Region\n\n");
+        NSLog(@"You Are Outside The Region");
     }
     else {
-        NSLog(@"\nYou are neither inside nore outside the region.\n\n");
+        NSLog(@"You are neither inside nore outside the region.");
         return;
     }
 }

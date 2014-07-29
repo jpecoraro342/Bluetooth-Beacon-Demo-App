@@ -18,7 +18,10 @@
 
 //Logging
 #import "GCPExtendedNSLog.h"
+
+#ifdef DEBUG
 #define NSLog(args...) ExtendNSLog(__FILE__,__LINE__,__PRETTY_FUNCTION__,args);
+#endif
 
 
 #endif

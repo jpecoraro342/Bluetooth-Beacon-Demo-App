@@ -26,7 +26,8 @@ void ExtendNSLog(const char *file, int lineNumber, const char *functionName, NSS
         format = [format stringByAppendingString: @"\n"];
     }
     
-    NSString *body = [[NSString alloc] initWithFormat:format arguments:ap];
+    //Note: I am automatically adding a new line before and two new lines after. This is only for debugging in console
+    NSString *body = [[NSString alloc] initWithFormat:[NSString stringWithFormat:@"\n%@\n\n", format] arguments:ap];
     
     // End using variable argument list.
     va_end (ap);
