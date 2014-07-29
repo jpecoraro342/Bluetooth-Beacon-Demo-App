@@ -35,6 +35,8 @@
 @property (nonatomic, strong) NSMutableArray *listOfBeacons;
 @property (strong, nonatomic) NSMutableDictionary *beaconDictionary;
 
+@property (nonatomic, strong) NSDateFormatter *dateFormatter;
+
 @end
 
 @implementation GCPGimbalIBeaconViewController
@@ -46,6 +48,9 @@
         self.exitDB = -80;
         _dbLevels = [[NSMutableArray alloc] init];
         _occurrenceTime = [[NSMutableArray alloc] init];
+        _dateFormatter = [[NSDateFormatter alloc] init];
+        [self.dateFormatter setDateStyle:NSDateFormatterNoStyle];
+        [self.dateFormatter setTimeStyle:NSDateFormatterLongStyle];
     }
     return self;
 }
@@ -168,18 +173,25 @@
 }
 
 -(void)receivedIBeaconSighting:(FYXiBeaconVisit *)visit updateTime:(NSDate *)updateTime RSSI:(NSNumber *)RSSI {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateStyle:NSDateFormatterNoStyle];
-    [dateFormatter setTimeStyle:NSDateFormatterLongStyle];
-    [self.secondaryStatusLabel setText:[NSString stringWithFormat:@"Last Updated: %@", [dateFormatter stringFromDate:updateTime]]];
+    [self.secondaryStatusLabel setText:[NSString stringWithFormat:@"Last Updated: %@", [self.dateFormatter stringFromDate:updateTime]]];
     
     [self.dbLevels addObject:RSSI];
     [self.occurrenceTime addObject:updateTime];
     
     GCPBeacon *beacon = [self.beaconDictionary objectForKey:visit.iBeacon.identifier];
+    if (!beacon) {
+        NSLog(@"\nAn Unknown Beacon Entered Range\nIdentifier:%@\n\n", visit.iBeacon.identifier);
+        return;
+    }
+    
     beacon.rssi = [RSSI integerValue];
     beacon.accuracy = [visit.iBeacon.accuracy doubleValue];
-    beacon.distance = visit.iBeacon.proximity;
+    if ([visit.iBeacon.proximity isKindOfClass:[NSString class]]) {
+        beacon.distance = visit.iBeacon.proximity;
+    }
+    else {
+        beacon.distance = @"Unknown";
+    }
     
     [self.tableView reloadData];
     
@@ -187,11 +199,13 @@
     NSString *details = [NSString stringWithFormat:@"Received Signal\nUUID: %@\nSignal: %@db\nMajor: %@\nMinor: %@", visit.iBeacon.uuid, RSSI, visit.iBeacon.major, visit.iBeacon.minor];
     
     NSLog(@"\n%@\n\n", details);
+    
     if ([RSSI integerValue] > self.entranceDB) {
         [self setPrimaryStatusLabelText:@"Beacon In Range"];
         
-        if (self.lastFiredNotification == 1)
+        if (self.lastFiredNotification == 1) {
             return;
+        }
         
         self.lastFiredNotification = 1;
         [self sendInRangeNotification];
@@ -229,45 +243,6 @@
 -(BOOL)textFieldShouldEndEditing:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
-}
-
-#pragma mark Keyboard Adjustment
-
-//register keyboard notification
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-}
-
-//remove keyboard notification observer
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
-}
-
-//show/hide the keyboard
-- (void)keyboardWillShow:(NSNotification *)notification {
-    NSDictionary *userInfo = [notification userInfo];
-    CGSize kbSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    
-    [UIView animateWithDuration:0.3 animations:^{
-        CGRect f = self.view.frame;
-        f.origin.y -= kbSize.height/2 + 10;
-        self.view.frame = f;
-    }];
-}
-
--(void)keyboardWillHide:(NSNotification *)notification {
-    NSDictionary *userInfo = [notification userInfo];
-    CGSize kbSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    
-    [UIView animateWithDuration:0.3 animations:^{
-        CGRect f = self.view.frame;
-        f.origin.y += kbSize.height/2 + 10;
-        self.view.frame = f;
-    }];
 }
 
 #pragma mark Private
