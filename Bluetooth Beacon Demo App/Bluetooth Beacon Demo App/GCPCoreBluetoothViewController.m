@@ -164,7 +164,7 @@
     NSDate *dateToFire = [now dateByAddingTimeInterval:1];
     
     [notification setFireDate:dateToFire];
-    [notification setAlertBody:message];
+    [notification setAlertBody:[NSString stringWithFormat:@"Core Bluetooth: %@", message]];
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
 }
 

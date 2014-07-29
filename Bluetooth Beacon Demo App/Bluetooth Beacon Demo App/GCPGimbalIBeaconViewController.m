@@ -294,7 +294,7 @@
     NSDate *dateToFire = [now dateByAddingTimeInterval:1];
     
     [notification setFireDate:dateToFire];
-    [notification setAlertBody:message];
+    [notification setAlertBody:[NSString stringWithFormat:@"Gimbal iBeacon SDK: %@", message]];
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
 }
 

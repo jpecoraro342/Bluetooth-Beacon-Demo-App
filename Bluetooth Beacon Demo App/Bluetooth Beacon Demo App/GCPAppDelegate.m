@@ -64,9 +64,6 @@
         [alert show];
     }
     
-    // Request to reload table view data
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadData" object:self];
-    
     // Set icon badge number to zero
     application.applicationIconBadgeNumber = 0;
 }
