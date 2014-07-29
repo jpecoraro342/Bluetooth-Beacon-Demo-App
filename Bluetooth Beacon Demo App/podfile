@@ -4,6 +4,7 @@
 target "Bluetooth Beacon Demo App" do
 
 pod 'BEMSimpleLineGraph'
+pod 'CorePlot'
 
 end
 

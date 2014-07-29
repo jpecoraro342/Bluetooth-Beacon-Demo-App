@@ -10,6 +10,7 @@
 #import "GCPChartViewController.h"
 #import <FYX/FYX.h>
 #import <FYX/FYXVisitManager.h>
+#import <FYX/FYXiBeacon.h>
 #import <FYX/FYXTransmitter.h>
 
 @interface GCPGimbalIBeaconViewController () <FYXServiceDelegate, FYXiBeaconVisitDelegate, UITextFieldDelegate>

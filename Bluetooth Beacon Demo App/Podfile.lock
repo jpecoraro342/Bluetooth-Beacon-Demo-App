@@ -1,10 +1,13 @@
 PODS:
   - BEMSimpleLineGraph (2.3)
+  - CorePlot (1.5.1)
 
 DEPENDENCIES:
   - BEMSimpleLineGraph
+  - CorePlot
 
 SPEC CHECKSUMS:
   BEMSimpleLineGraph: 5fb192c00c48f8123654e2b943b9227061f0dfd2
+  CorePlot: b15cb1a9a687b9576545104248d6e22033e678bb
 
 COCOAPODS: 0.33.1

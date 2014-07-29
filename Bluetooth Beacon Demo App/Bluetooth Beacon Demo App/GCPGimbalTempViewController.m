@@ -39,7 +39,7 @@
 -(instancetype)init {
     self = [super init];
     if (self) {
-        self.entranceDB = -65;
+        self.entranceDB = -50;
         self.exitDB = -80;
         _dbLevels = [[NSMutableArray alloc] init];
         _occurrenceTime = [[NSMutableArray alloc] init];
