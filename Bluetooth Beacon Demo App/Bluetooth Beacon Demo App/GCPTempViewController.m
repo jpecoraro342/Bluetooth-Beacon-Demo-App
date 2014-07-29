@@ -7,6 +7,7 @@
 //
 
 #import "GCPTempViewController.h"
+#import "GCPLocationTrackerViewController.h"
 #import "GCPGimbalTempViewController.h"
 #import "GCPEstimoteTempViewController.h"
 #import "GCPGimbalIBeaconViewController.h"
@@ -49,6 +50,11 @@
 - (IBAction)openBuiltInBluetoothTest:(id)sender {
     GCPCoreBluetoothViewController *corebluetooth = [[GCPCoreBluetoothViewController alloc] init];
     [self.navigationController pushViewController:corebluetooth animated:YES];
+}
+
+- (IBAction)openLocationTracker:(id)sender {
+    GCPLocationTrackerViewController *locationTracker = [[GCPLocationTrackerViewController alloc] init];
+    [self.navigationController pushViewController:locationTracker animated:YES];
 }
 
 -(void)stopAllBroadcastingServices {

@@ -67,12 +67,36 @@
     beacon2.minor = 1;
     beacon2.name = @"Quang's Gimbal";
     [beacon2 updateIdentifier];
+     
+    /*
+    GCPBeacon *beacon = [[GCPBeacon alloc] init];
+    beacon.uuid = [[NSUUID alloc] initWithUUIDString:@"B30071DE-17B6-4B1E-8915-A01B2E1ABA04"];
+    beacon.major = 1;
+    beacon.minor = 1;
+    beacon.name = @"Location Tracker 1-1";
+    [beacon updateIdentifier];
+    
+    GCPBeacon *beacon2 = [[GCPBeacon alloc] init];
+    beacon2.uuid = [[NSUUID alloc] initWithUUIDString:@"B30071DE-17B6-4B1E-8915-A01B2E1ABA04"];
+    beacon2.major = 1;
+    beacon2.minor = 2;
+    beacon2.name = @"Location Tracker 1-2";
+    [beacon2 updateIdentifier];
+    
+    GCPBeacon *beacon3 = [[GCPBeacon alloc] init];
+    beacon3.uuid = [[NSUUID alloc] initWithUUIDString:@"B30071DE-17B6-4B1E-8915-A01B2E1ABA04"];
+    beacon3.major = 1;
+    beacon3.minor = 3;
+    beacon3.name = @"Location Tracker 1-3";
+    [beacon3 updateIdentifier];*/
     
     [self.listOfBeacons addObject:beacon];
     [self.listOfBeacons addObject:beacon2];
+    //[self.listOfBeacons addObject:beacon3];
     _beaconDictionary =[[NSMutableDictionary alloc] init];
     [self.beaconDictionary setObject:beacon forKey:beacon.identifier];
     [self.beaconDictionary setObject:beacon2 forKey:beacon2.identifier];
+    //[self.beaconDictionary setObject:beacon3 forKey:beacon3.identifier];
     
     UINib *nib = [UINib nibWithNibName:@"GCPStandardBeaconTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"iBeaconCell"];

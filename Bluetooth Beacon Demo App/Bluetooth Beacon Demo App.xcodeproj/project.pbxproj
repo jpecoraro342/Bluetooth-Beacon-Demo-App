@@ -30,6 +30,8 @@
 		7C6F6D391986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F6D371986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.m */; };
 		7C6F6D3A1986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C6F6D381986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.xib */; };
 		7C6F6D3D198826D9007ADDF6 /* GCPExtendedNSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F6D3C198826D9007ADDF6 /* GCPExtendedNSLog.m */; };
+		7C6F6D5B19883DB2007ADDF6 /* GCPLocationTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F6D5919883DB2007ADDF6 /* GCPLocationTrackerViewController.m */; };
+		7C6F6D5C19883DB2007ADDF6 /* GCPLocationTrackerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C6F6D5A19883DB2007ADDF6 /* GCPLocationTrackerViewController.xib */; };
 		7CC99DC2197F0D0B003E26F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DC1197F0D0B003E26F0 /* Foundation.framework */; };
 		7CC99DC4197F0D0B003E26F0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DC3197F0D0B003E26F0 /* CoreGraphics.framework */; };
 		7CC99DC6197F0D0B003E26F0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC99DC5197F0D0B003E26F0 /* UIKit.framework */; };
@@ -81,6 +83,9 @@
 		7C6F6D381986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GCPStandardBeaconTableViewCell.xib; sourceTree = "<group>"; };
 		7C6F6D3B198826D9007ADDF6 /* GCPExtendedNSLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPExtendedNSLog.h; sourceTree = "<group>"; };
 		7C6F6D3C198826D9007ADDF6 /* GCPExtendedNSLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPExtendedNSLog.m; sourceTree = "<group>"; };
+		7C6F6D5819883DB2007ADDF6 /* GCPLocationTrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPLocationTrackerViewController.h; sourceTree = "<group>"; };
+		7C6F6D5919883DB2007ADDF6 /* GCPLocationTrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPLocationTrackerViewController.m; sourceTree = "<group>"; };
+		7C6F6D5A19883DB2007ADDF6 /* GCPLocationTrackerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GCPLocationTrackerViewController.xib; sourceTree = "<group>"; };
 		7CC99DBE197F0D0B003E26F0 /* Bluetooth Beacon Demo App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bluetooth Beacon Demo App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CC99DC1197F0D0B003E26F0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7CC99DC3197F0D0B003E26F0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -287,6 +292,9 @@
 				7C6F6D361986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.h */,
 				7C6F6D371986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.m */,
 				7C6F6D381986CD21007ADDF6 /* GCPStandardBeaconTableViewCell.xib */,
+				7C6F6D5819883DB2007ADDF6 /* GCPLocationTrackerViewController.h */,
+				7C6F6D5919883DB2007ADDF6 /* GCPLocationTrackerViewController.m */,
+				7C6F6D5A19883DB2007ADDF6 /* GCPLocationTrackerViewController.xib */,
 				7CC99DD3197F0D0B003E26F0 /* Images.xcassets */,
 				7CC99DC8197F0D0B003E26F0 /* Supporting Files */,
 			);
@@ -316,7 +324,6 @@
 				7CC99DBA197F0D0B003E26F0 /* Sources */,
 				7CC99DBB197F0D0B003E26F0 /* Frameworks */,
 				7CC99DBC197F0D0B003E26F0 /* Resources */,
-				7C36A1D51980CDCF005707CE /* ShellScript */,
 				859FD97EEA874F61842A46F6 /* Copy Pods Resources */,
 			);
 			buildRules = (
@@ -379,6 +386,7 @@
 				7C6F6D2D198321FA007ADDF6 /* GCPGimbalIBeaconViewController.xib in Resources */,
 				7C6F6D2819817E7B007ADDF6 /* GCPChartViewController.xib in Resources */,
 				7C6F6D2219816520007ADDF6 /* Bluetooth Beacon Demo App-Info.plist in Resources */,
+				7C6F6D5C19883DB2007ADDF6 /* GCPLocationTrackerViewController.xib in Resources */,
 				7CC99E1A198038F5003E26F0 /* GCPGimbalTempViewController.xib in Resources */,
 				7C6F6D321986A889007ADDF6 /* GCPCoreBluetoothViewController.xib in Resources */,
 				7CC99DD4197F0D0B003E26F0 /* Images.xcassets in Resources */,
@@ -404,19 +412,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
-		};
-		7C36A1D51980CDCF005707CE /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#Update build number with number of git commits if in release mode\nif [ ${CONFIGURATION} == \"Release\" ]; then\nbuildNumber=$(git rev-list HEAD | wc -l | tr -d ' ')\nbuildNumber=$(git rev-list HEAD | wc -l | tr -d ' ')\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\nfi;";
 		};
 		859FD97EEA874F61842A46F6 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -451,6 +446,7 @@
 				7C36A1DE19814AA1005707CE /* GCPTempViewController.m in Sources */,
 				7C6F6D311986A889007ADDF6 /* GCPCoreBluetoothViewController.m in Sources */,
 				7C36A1D919814A5E005707CE /* GCPEstimoteTempViewController.m in Sources */,
+				7C6F6D5B19883DB2007ADDF6 /* GCPLocationTrackerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
