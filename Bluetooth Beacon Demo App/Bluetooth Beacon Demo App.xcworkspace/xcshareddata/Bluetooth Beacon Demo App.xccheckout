@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F2CA8E64-F6A7-457F-A81C-EB35913228F2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Bluetooth Beacon Demo App</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C140C9D4-986F-4A69-BA3C-9EDC5F04B84B</key>
+		<string>https://github.com/jpecoraro342/Bluetooth-Beacon-Demo-App.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Bluetooth Beacon Demo App/Bluetooth Beacon Demo App.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C140C9D4-986F-4A69-BA3C-9EDC5F04B84B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/jpecoraro342/Bluetooth-Beacon-Demo-App.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C140C9D4-986F-4A69-BA3C-9EDC5F04B84B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C140C9D4-986F-4A69-BA3C-9EDC5F04B84B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Bluetooth Beacon Demo</string>
+		</dict>
+	</array>
+</dict>
+</plist>

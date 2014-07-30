@@ -31,8 +31,11 @@
 
 @property (nonatomic, strong) NSDateFormatter *timeFormatter;
 
+@property (nonatomic, assign) BOOL writeAllInfo;
+
 -(void)updateBeaconWithCLBeacon:(CLBeacon *)beacon;
 -(BOOL)isEqualToCLBeacon:(CLBeacon *)beacon;
 -(void)updateIdentifier;
+-(void)updateProximityReset;
 
 @end

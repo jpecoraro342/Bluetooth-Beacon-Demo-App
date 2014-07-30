@@ -28,8 +28,14 @@
     self.accuracy = beacon.accuracy;
     self.distance = [self nameForProximity:beacon.proximity];
     
-    [self.rssiHistory addObject:[NSNumber numberWithInteger:beacon.rssi]];
-    [self.distanceHistory addObject:[NSNumber numberWithDouble:beacon.accuracy]];
+    if (self.writeAllInfo) {
+        [self updateArrays];
+    }
+}
+
+-(void)updateArrays {
+    [self.rssiHistory addObject:[NSNumber numberWithInteger:self.rssi]];
+    [self.distanceHistory addObject:[NSNumber numberWithDouble:self.accuracy]];
     [self.timeHistory addObject:[self.timeFormatter stringFromDate:[NSDate new]]];
     
     if ([self.rssiHistory count] == 100) {
@@ -42,6 +48,15 @@
 
 -(void)updateIdentifier {
     self.identifier = [NSString stringWithFormat:@"%@:%zd:%zd", [self.uuid UUIDString], self.major, self.minor];
+}
+
+-(void)updateProximityReset {
+    if ([self.distance isEqualToString:@"Unknown"]) {
+        self.hasBeenReset = YES;
+    }
+    else if ([self.distance isEqualToString:@"Far"]) {
+        self.hasBeenReset = YES;
+    }
 }
 
 -(NSString *)nameForProximity:(CLProximity)proximity {
@@ -66,7 +81,9 @@
 -(void)sendDataToServer {
     NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:self.identifier, @"beaconIdentifier", self.timeHistory, @"timeHistory", self.rssiHistory, @"rssiHistory", self.distanceHistory, @"distanceHistory", nil];
     
-    NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:kNilOptions error:nil];
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
+    [data writeToFile:[kBaseFilePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@:%@.json", self.identifier,[self.timeHistory lastObject]]] atomically:YES];
+    NSLog(@"Data Sent To Server:\n%@", self.identifier);
     //send the data to the server
 }
 

@@ -10,6 +10,7 @@
 #define Campus_GCPConstants_h
 
 #define kMaxNotificationFrequency 60 //time difference in seconds
+#define kBaseFilePath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
 
 //APIKeys
 #define kGimbalAppID @"4381ecc9b6a12797aeaac6b595838cc00331fccf202ffb9ba96b5a29a7791364"

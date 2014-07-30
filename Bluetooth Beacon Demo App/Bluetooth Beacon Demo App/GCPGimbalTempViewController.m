@@ -22,6 +22,7 @@
 
 @property (nonatomic, strong) NSDate *lastInRangeNotification;
 @property (nonatomic, strong) NSDate *lastOutOfRangeNotification;
+@property (nonatomic, strong) NSDate *lastEntranceNotification;
 
 @property (weak, nonatomic) IBOutlet UITextField *upperLimit;
 @property (weak, nonatomic) IBOutlet UITextField *lowerLimit;
@@ -91,8 +92,7 @@
 
 - (void)didArrive:(FYXVisit *)visit; {
     // this will be invoked when an authorized transmitter is sighted for the first time
-    [self setPrimaryStatusLabelText:@"A beacon has been discovered"];
-    [self sendNotificationWithMessage:[NSString stringWithFormat:@"A Beacon Has Been Discovered: %@", visit.transmitter.name]];
+    [self sendBeaconDiscoveredNotification:visit.transmitter];
     NSLog(@"Beacon Found\nName: %@\nTemperature: %@\nBattery: %@", visit.transmitter.name, visit.transmitter.temperature, visit.transmitter.battery);
 }
 - (void)receivedSighting:(FYXVisit *)visit updateTime:(NSDate *)updateTime RSSI:(NSNumber *)RSSI; {
@@ -122,7 +122,7 @@
             return;
         
         self.lastFiredNotification = 1;
-        [self sendInRangeNotification];
+        [self sendInRangeNotification:visit.transmitter];
     }
     else if ([RSSI integerValue] < self.exitDB) {
         [self setPrimaryStatusLabelText:@"Beacon Out of Range"];
@@ -132,7 +132,7 @@
         
         self.lastFiredNotification = 2;
         
-        [self sendOutOfRangeNotification];
+        [self sendOutOfRangeNotification:visit.transmitter];
     }
     else {
         if (self.lastFiredNotification == 0)
@@ -145,7 +145,7 @@
 
 - (void)didDepart:(FYXVisit *)visit; {
     // this will be invoked when an authorized transmitter has not been sighted for some time
-    [self setPrimaryStatusLabelText:[NSString stringWithFormat:@"Beacon: %@ has exited range\n", visit.transmitter.name]];
+    [self setPrimaryStatusLabelText:[NSString stringWithFormat:@"%@ has exited range\n", visit.transmitter.name]];
     NSLog(@"Beacon was in proximity for %.4f seconds", visit.dwellTime);
 }
 
@@ -231,38 +231,55 @@
     [self.navigationController pushViewController:chart animated:YES];
 }
 
--(void)sendInRangeNotification {
+-(void)sendInRangeNotification:(FYXTransmitter *)beacon {
     NSDate *now = [NSDate date];
     
     if (self.lastInRangeNotification) {
         NSTimeInterval timeSinceLastInRangeNotification = [now timeIntervalSinceDate:self.lastInRangeNotification];
         
-        if (timeSinceLastInRangeNotification < 60) {
-            NSLog(@"In range notification suppressed");
+        if (timeSinceLastInRangeNotification < kMaxNotificationFrequency) {
+            NSLog(@"%@ is in Range", beacon.name);
             return;
         }
     }
     
     self.lastInRangeNotification = now;
     
-    [self sendNotificationWithMessage:@"Beacon In Range"];
+    [self sendNotificationWithMessage:[NSString stringWithFormat:@"%@ is in Range", beacon.name]];
 }
 
--(void)sendOutOfRangeNotification {
+-(void)sendOutOfRangeNotification:(FYXTransmitter *)beacon {
     NSDate *now = [NSDate date];
     
     if (self.lastOutOfRangeNotification) {
         NSTimeInterval timeSinceLastOutOfRangeNotification = [now timeIntervalSinceDate:self.lastOutOfRangeNotification];
         
-        if (timeSinceLastOutOfRangeNotification < 60) {
-            NSLog(@"Out of range notification suppressed");
+        if (timeSinceLastOutOfRangeNotification < kMaxNotificationFrequency) {
+            NSLog(@"%@ is Out of Range", beacon.name);
             return;
         }
     }
     
     self.lastOutOfRangeNotification = now;
     
-    [self sendNotificationWithMessage:@"Beacon Out of Range"];
+    [self sendNotificationWithMessage:[NSString stringWithFormat:@"%@ is Out of Range", beacon.name]];
+}
+
+-(void)sendBeaconDiscoveredNotification:(FYXTransmitter *)beacon {
+    NSDate *now = [NSDate date];
+    
+    if (self.lastEntranceNotification) {
+        NSTimeInterval timeSinceEntranceNotification = [now timeIntervalSinceDate:self.lastEntranceNotification];
+        
+        if (timeSinceEntranceNotification < kMaxNotificationFrequency) {
+            [self setPrimaryStatusLabelText:[NSString stringWithFormat:@"%@ Has Been Discovered", beacon.name]];
+            return;
+        }
+    }
+    
+    self.lastEntranceNotification = now;
+    
+    [self sendNotificationWithMessage:[NSString stringWithFormat:@"%@ Has Been Discovered", beacon.name]];
 }
 
 -(void)sendNotificationWithMessage:(NSString*)message {

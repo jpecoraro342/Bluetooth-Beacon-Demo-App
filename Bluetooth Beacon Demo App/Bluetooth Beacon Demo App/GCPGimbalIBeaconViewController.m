@@ -37,6 +37,8 @@
 
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
+@property (nonatomic, strong) NSDate *lastEntranceNotification;
+
 @end
 
 @implementation GCPGimbalIBeaconViewController
@@ -57,51 +59,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    _listOfBeacons = [[NSMutableArray alloc] init];
-    GCPBeacon *beacon = [[GCPBeacon alloc] init];
-    beacon.uuid = [[NSUUID alloc] initWithUUIDString:@"D133D6A0-1295-11E4-9191-0800200C9A66"];
-    beacon.major = 1;
-    beacon.minor = 1;
-    beacon.name = @"Joseph's Gimbal";
-    [beacon updateIdentifier];
-
-    GCPBeacon *beacon2 = [[GCPBeacon alloc] init];
-    beacon2.uuid = [[NSUUID alloc] initWithUUIDString:@"D133D6A0-1295-11E4-9191-0800200C9A66"];
-    beacon2.major = 2;
-    beacon2.minor = 1;
-    beacon2.name = @"Quang's Gimbal";
-    [beacon2 updateIdentifier];
-     
-    /*
-    GCPBeacon *beacon = [[GCPBeacon alloc] init];
-    beacon.uuid = [[NSUUID alloc] initWithUUIDString:@"B30071DE-17B6-4B1E-8915-A01B2E1ABA04"];
-    beacon.major = 1;
-    beacon.minor = 1;
-    beacon.name = @"Location Tracker 1-1";
-    [beacon updateIdentifier];
-    
-    GCPBeacon *beacon2 = [[GCPBeacon alloc] init];
-    beacon2.uuid = [[NSUUID alloc] initWithUUIDString:@"B30071DE-17B6-4B1E-8915-A01B2E1ABA04"];
-    beacon2.major = 1;
-    beacon2.minor = 2;
-    beacon2.name = @"Location Tracker 1-2";
-    [beacon2 updateIdentifier];
-    
-    GCPBeacon *beacon3 = [[GCPBeacon alloc] init];
-    beacon3.uuid = [[NSUUID alloc] initWithUUIDString:@"B30071DE-17B6-4B1E-8915-A01B2E1ABA04"];
-    beacon3.major = 1;
-    beacon3.minor = 3;
-    beacon3.name = @"Location Tracker 1-3";
-    [beacon3 updateIdentifier];*/
-    
-    [self.listOfBeacons addObject:beacon];
-    [self.listOfBeacons addObject:beacon2];
-    //[self.listOfBeacons addObject:beacon3];
-    _beaconDictionary =[[NSMutableDictionary alloc] init];
-    [self.beaconDictionary setObject:beacon forKey:beacon.identifier];
-    [self.beaconDictionary setObject:beacon2 forKey:beacon2.identifier];
-    //[self.beaconDictionary setObject:beacon3 forKey:beacon3.identifier];
+    [self loadBeacons];
     
     UINib *nib = [UINib nibWithNibName:@"GCPStandardBeaconTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"iBeaconCell"];
@@ -167,8 +125,7 @@
 -(void)didArriveIBeacon:(FYXiBeaconVisit *)visit {
     NSLog(@"\nVisit IBeacon: \n%@", visit.iBeacon);
     // this will be invoked when an authorized transmitter is sighted for the first time
-    [self setPrimaryStatusLabelText:@"A beacon has been discovered"];
-    [self sendNotificationWithMessage:@"A Beacon Has Been Discovered"];
+    [self sendBeaconDiscoveredNotification:[self.beaconDictionary objectForKey:visit.iBeacon.identifier]];
     NSLog(@"Beacon Found\nUUID: %@\nMajor: %@\nMinor: %@", visit.iBeacon.uuid, visit.iBeacon.major, visit.iBeacon.minor);
 }
 
@@ -190,8 +147,10 @@
         beacon.distance = visit.iBeacon.proximity;
     }
     else {
+        visit.iBeacon.proximity = @"Unknown";
         beacon.distance = @"Unknown";
     }
+    [beacon updateProximityReset];
     
     [self.tableView reloadData];
     
@@ -199,33 +158,9 @@
     NSString *details = [NSString stringWithFormat:@"Received Signal\nUUID: %@\nSignal: %@db\nMajor: %@\nMinor: %@", visit.iBeacon.uuid, RSSI, visit.iBeacon.major, visit.iBeacon.minor];
     
     NSLog(@"%@", details);
-    
-    if ([RSSI integerValue] > self.entranceDB) {
-        [self setPrimaryStatusLabelText:@"Beacon In Range"];
-        
-        if (self.lastFiredNotification == 1) {
-            return;
-        }
-        
-        self.lastFiredNotification = 1;
-        [self sendInRangeNotification];
-    }
-    else if ([RSSI integerValue] < self.exitDB) {
-        [self setPrimaryStatusLabelText:@"Beacon Out of Range"];
-        
-        if (self.lastFiredNotification == 2)
-            return;
-        
-        self.lastFiredNotification = 2;
-        
-        [self sendOutOfRangeNotification];
-    }
-    else {
-        if (self.lastFiredNotification == 0)
-            return;
-        
-        NSLog(@"Beacon Signal Notification Reset");
-        self.lastFiredNotification = 0;
+    if (beacon.hasBeenReset && ([visit.iBeacon.proximity isEqualToString:@"Near"] || [visit.iBeacon.proximity isEqualToString:@"Immediate"])) {
+        [self setPrimaryStatusLabelText:[NSString stringWithFormat:@"%@ In Range", beacon.name]];
+        [self sendInRangeNotification:beacon];
     }
 }
 
@@ -252,38 +187,37 @@
     [self.navigationController pushViewController:chart animated:YES];
 }
 
--(void)sendInRangeNotification {
+-(void)sendInRangeNotification:(GCPBeacon *)beacon {
     NSDate *now = [NSDate date];
     
-    if (self.lastInRangeNotification) {
-        NSTimeInterval timeSinceLastInRangeNotification = [now timeIntervalSinceDate:self.lastInRangeNotification];
-        
-        if (timeSinceLastInRangeNotification < 60) {
-            NSLog(@"In range notification suppressed");
-            return;
-        }
+    NSTimeInterval timeSinceLastNotification = [now timeIntervalSinceDate:[beacon lastNotificationDate]];
+    
+    if (timeSinceLastNotification < 60) {
+        NSLog(@"Notification Suppressed: %@ is Near", beacon.name);
+        return;
     }
     
-    self.lastInRangeNotification = now;
+    beacon.lastNotificationDate = now;
+    beacon.hasBeenReset = NO;
     
-    [self sendNotificationWithMessage:@"Beacon In Range"];
+    [self sendNotificationWithMessage:[NSString stringWithFormat:@"%@ is Near", beacon.name]];
 }
 
--(void)sendOutOfRangeNotification {
+-(void)sendBeaconDiscoveredNotification:(GCPBeacon *)beacon {
     NSDate *now = [NSDate date];
     
-    if (self.lastOutOfRangeNotification) {
-        NSTimeInterval timeSinceLastOutOfRangeNotification = [now timeIntervalSinceDate:self.lastOutOfRangeNotification];
+    if (self.lastEntranceNotification) {
+        NSTimeInterval timeSinceEntranceNotification = [now timeIntervalSinceDate:self.lastEntranceNotification];
         
-        if (timeSinceLastOutOfRangeNotification < 60) {
-            NSLog(@"Out of range notification suppressed");
+        if (timeSinceEntranceNotification < kMaxNotificationFrequency) {
+            [self setPrimaryStatusLabelText:[NSString stringWithFormat:@"%@ Was Discovered", beacon.name]];
             return;
         }
     }
     
-    self.lastOutOfRangeNotification = now;
+    self.lastEntranceNotification = now;
     
-    [self sendNotificationWithMessage:@"Beacon Out of Range"];
+    [self sendNotificationWithMessage:[NSString stringWithFormat:@"%@ Was Discovered", beacon.name]];
 }
 
 -(void)sendNotificationWithMessage:(NSString*)message {
@@ -306,6 +240,52 @@
     
     NSLog(@"%@", status);
     [self.primaryStatusLabel setText:status];
+}
+
+-(void)loadBeacons {
+    _listOfBeacons = [[NSMutableArray alloc] init];
+    GCPBeacon *beacon = [[GCPBeacon alloc] init];
+    beacon.uuid = [[NSUUID alloc] initWithUUIDString:@"D133D6A0-1295-11E4-9191-0800200C9A66"];
+    beacon.major = 1;
+    beacon.minor = 1;
+    beacon.name = @"Joseph's Gimbal";
+    [beacon updateIdentifier];
+    
+    GCPBeacon *beacon2 = [[GCPBeacon alloc] init];
+    beacon2.uuid = [[NSUUID alloc] initWithUUIDString:@"D133D6A0-1295-11E4-9191-0800200C9A66"];
+    beacon2.major = 2;
+    beacon2.minor = 1;
+    beacon2.name = @"Quang's Gimbal";
+    [beacon2 updateIdentifier];
+    
+    GCPBeacon *beacon3 = [[GCPBeacon alloc] init];
+    beacon3.uuid = [[NSUUID alloc] initWithUUIDString:@"B30071DE-17B6-4B1E-8915-A01B2E1ABA04"];
+    beacon3.major = 1;
+    beacon3.minor = 1;
+    beacon3.name = @"Location Tracker 1-1";
+    [beacon3 updateIdentifier];
+    
+    GCPBeacon *beacon4 = [[GCPBeacon alloc] init];
+    beacon4.uuid = [[NSUUID alloc] initWithUUIDString:@"B30071DE-17B6-4B1E-8915-A01B2E1ABA04"];
+    beacon4.major = 1;
+    beacon4.minor = 2;
+    beacon4.name = @"Location Tracker 1-2";
+    [beacon4 updateIdentifier];
+    
+    GCPBeacon *beacon5 = [[GCPBeacon alloc] init];
+    beacon5.uuid = [[NSUUID alloc] initWithUUIDString:@"B30071DE-17B6-4B1E-8915-A01B2E1ABA04"];
+    beacon5.major = 1;
+    beacon5.minor = 3;
+    beacon5.name = @"Location Tracker 1-3";
+    [beacon5 updateIdentifier];
+    
+    [self.listOfBeacons addObject:beacon];
+    [self.listOfBeacons addObject:beacon2];
+    [self.listOfBeacons addObject:beacon3];
+    [self.listOfBeacons addObject:beacon4];
+    [self.listOfBeacons addObject:beacon5];
+    
+    _beaconDictionary =[[NSMutableDictionary alloc] initWithObjectsAndKeys:beacon, beacon.identifier, beacon2, beacon2.identifier, beacon3, beacon3.identifier, beacon4, beacon4.identifier, beacon5, beacon5.identifier, nil];
 }
 
 - (void)didReceiveMemoryWarning {
