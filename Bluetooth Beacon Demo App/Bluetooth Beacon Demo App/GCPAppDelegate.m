@@ -99,13 +99,15 @@
 
 - (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region {
     if(state == CLRegionStateInside) {
-        NSLog(@"You Are Inside The Region");
+        NSLog(@"You Are Inside The Region: %@", region);
+        [self createLocalNotificationWithMessge:[NSString stringWithFormat:@"You Are Inside The Region: %@", region.identifier]];
     }
     else if(state == CLRegionStateOutside) {
-        NSLog(@"You Are Outside The Region");
+        NSLog(@"You Are Outside The Region: %@", region);
+        [self createLocalNotificationWithMessge:[NSString stringWithFormat:@"You Are Outside The Region: %@", region.identifier]];
     }
     else {
-        NSLog(@"You are neither inside nore outside the region.");
+        NSLog(@"You are neither inside nore outside the region: %@", region);
         return;
     }
 }
@@ -114,6 +116,20 @@
     for (CLBeacon *beacon in beacons) {
         NSLog(@"Received Beacon Signal\nUUID:%@\nSignal: %zd\nMajor: %zd\nMinor: %zd", [beacon.proximityUUID UUIDString], beacon.rssi, [beacon.major integerValue], [beacon.minor integerValue]);
     }
+}
+
+-(void)createLocalNotificationWithMessge:(NSString *)message {
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:@"App Delegate", @"classType", nil];
+    notification.userInfo = dict;
+    NSDate *now = [NSDate date];
+    
+    //one second delay gives the change to put the app in background
+    NSDate *dateToFire = [now dateByAddingTimeInterval:1];
+    
+    [notification setFireDate:dateToFire];
+    [notification setAlertBody:[NSString stringWithFormat:@"%@", message]];
+    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
 }
 
 @end

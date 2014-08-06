@@ -133,11 +133,35 @@
     estimote2.name = @"Nikhillesh's Estimote";
     [estimote2 updateIdentifier];
     
-    _listOfBeacons = [[NSMutableArray alloc] initWithObjects:beacon, estimote, estimote2, nil];
+    GCPBeacon *beacon3 = [[GCPBeacon alloc] init];
+    beacon3.uuid = [[NSUUID alloc] initWithUUIDString:@"B30071DE-17B6-4B1E-8915-A01B2E1ABA04"];
+    beacon3.major = 1;
+    beacon3.minor = 1;
+    beacon3.name = @"Location Tracker 1-1";
+    [beacon3 updateIdentifier];
+    
+    GCPBeacon *beacon4 = [[GCPBeacon alloc] init];
+    beacon4.uuid = [[NSUUID alloc] initWithUUIDString:@"B30071DE-17B6-4B1E-8915-A01B2E1ABA04"];
+    beacon4.major = 1;
+    beacon4.minor = 2;
+    beacon4.name = @"Location Tracker 1-2";
+    [beacon4 updateIdentifier];
+    
+    GCPBeacon *beacon5 = [[GCPBeacon alloc] init];
+    beacon5.uuid = [[NSUUID alloc] initWithUUIDString:@"B30071DE-17B6-4B1E-8915-A01B2E1ABA04"];
+    beacon5.major = 1;
+    beacon5.minor = 3;
+    beacon5.name = @"Location Tracker 1-3";
+    [beacon5 updateIdentifier];
+    
+    _listOfBeacons = [[NSMutableArray alloc] initWithObjects:beacon, estimote, estimote2, beacon3, beacon4, beacon5, nil];
     _beacons =[[NSMutableDictionary alloc] init];
     [self.beacons setObject:beacon forKey:beacon.identifier];
     [self.beacons setObject:estimote forKey:estimote.identifier];
     [self.beacons setObject:estimote2 forKey:estimote2.identifier];
+    [self.beacons setObject:beacon3 forKey:beacon3.identifier];
+    [self.beacons setObject:beacon4 forKey:beacon4.identifier];
+    [self.beacons setObject:beacon5 forKey:beacon5.identifier];
 }
 
 -(void)fireInRangeUpdate:(GCPBeacon *)beacon {
